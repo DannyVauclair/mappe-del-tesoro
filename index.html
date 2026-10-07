@@ -17,7 +17,7 @@
 .route-list{display:grid;gap:7px}.route-row{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:9px;height:38px;padding:0 10px;border:1px solid #d7bd9122;border-radius:4px;background:#ffffff05}.dot{width:10px;height:10px;border-radius:50%;box-shadow:0 0 0 2px #fff1}.route-row b{font-size:12px}.route-row span:last-child{font:800 10px/1 system-ui,sans-serif;color:#bba687}.note{font-size:10.5px;line-height:1.45;color:#98856a;margin-top:12px}.reset{width:100%;height:32px;margin-top:10px;border:0;background:transparent;color:#9f8d74;cursor:pointer;font-size:10.5px;text-decoration:underline;text-underline-offset:3px}.panel.closed{display:none}.open-panel{display:none;position:absolute;z-index:1000;left:18px;top:18px;border:1px solid #d7bd9150;border-radius:4px;background:#211910;color:#ead9b8;padding:10px 13px;cursor:pointer;font:800 10px/1 system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;box-shadow:0 8px 24px #0005}.open-panel.show{display:block}
 .treasure-icon{background:transparent!important;border:0!important}.pin{--pin:#2f76d2;width:28px;height:28px;position:relative;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:var(--pin);border:1px solid #18120ddd;box-shadow:0 2px 5px #0008,inset 0 0 0 1px #ffffff24;transition:opacity .15s,filter .15s}.pin span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;transform:rotate(45deg);font:800 10px/1 Arial,sans-serif;color:#fff;text-shadow:0 1px 1px #0008}.pin.empty{opacity:.34;filter:grayscale(.75)}.pin.empty:after{content:"×";position:absolute;right:-7px;top:-8px;width:16px;height:16px;border-radius:50%;transform:rotate(45deg);background:#211910;border:1px solid #9f8d74;color:#e9dcc6;font:900 12px/14px Arial;text-align:center}.pin.spawned{filter:brightness(1.22);box-shadow:0 0 0 2px #f0d482aa,0 0 16px #f0c75d99,inset 0 0 0 1px #fff7}.pin.spawned:after{content:"★";position:absolute;right:-8px;top:-9px;width:17px;height:17px;border-radius:50%;transform:rotate(45deg);background:#7a5a1d;border:1px solid #f0d482;color:#fff2b7;font:900 9px/16px Arial;text-align:center}.pulse .pin{animation:pulse .8s ease-in-out 2}@keyframes pulse{50%{filter:brightness(1.5);transform:rotate(-45deg) scale(1.18)}}
 .leaflet-popup-content-wrapper,.leaflet-popup-tip{background:#241a11;color:#ead9b8;border:1px solid #6c5135;box-shadow:0 10px 28px #0007}.leaflet-popup-content{margin:13px 14px;min-width:225px}.pop-k{font:800 9px/1 system-ui,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#aa8b61}.pop-t{font-weight:700;font-size:19px;margin:5px 0 3px}.pop-s{font-size:11.5px;color:#baa483;margin-bottom:10px;line-height:1.4}.pop-meta{font:700 9.5px/1.35 system-ui,sans-serif;color:#8f7a60;margin:-3px 0 10px}.pop-actions{display:grid;grid-template-columns:1fr 1fr;gap:6px}.pop-btn{min-height:34px;padding:7px 8px;border:1px solid #725737;border-radius:3px;background:#322418;color:#ead9b8;cursor:pointer;font:800 9px/1.15 system-ui,sans-serif;text-transform:uppercase;letter-spacing:.04em}.pop-btn.empty-action{border-color:#806f5a}.pop-btn.spawn-action{border-color:#b99347;background:#5c4319}.pop-btn.reset-action{grid-column:1/-1;background:#241a11;color:#a99578}.sync-box{display:grid;gap:8px}.sync-mode{display:grid;grid-template-columns:1fr 1fr;gap:5px}.sync-field{display:grid;gap:4px}.sync-field label{font:800 9px/1 system-ui,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#907653}.sync-field input{height:34px;width:100%;border:1px solid #d7bd912a;border-radius:4px;background:#120e0bc0;color:#ead9b8;padding:0 10px;outline:none;font:600 12px/1 system-ui,sans-serif}.sync-field input:focus{border-color:#b88a5077}.sync-status{display:flex;align-items:center;gap:7px;min-height:18px;font:700 10px/1.3 system-ui,sans-serif;color:#a99578}.sync-dot{width:8px;height:8px;border-radius:50%;background:#756451;box-shadow:0 0 0 2px #fff1}.sync-dot.online{background:#6f9f68}.sync-dot.syncing{background:#c19a50}.sync-dot.error{background:#b65a50}.sync-help{font-size:10px;line-height:1.4;color:#8f7a60}.sync-actions{display:grid;grid-template-columns:1fr auto;gap:6px}.sync-actions .btn{padding:0 10px}.status-legend{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;margin-top:10px}.status-pill{border:1px solid #d7bd9120;border-radius:3px;padding:6px 4px;text-align:center;font:800 9px/1.2 system-ui,sans-serif;color:#a99578}.status-pill b{display:block;font-size:13px;color:#ead9b8;margin-bottom:3px}
-@media(max-width:700px){.panel{left:10px;top:10px;width:min(342px,calc(100vw - 20px));max-height:calc(100vh - 20px)}.open-panel{left:10px;top:10px}}
+.pop-image{display:block;width:100%;max-height:210px;object-fit:cover;border-radius:5px;border:1px solid #d7bd9133;margin:0 0 10px;background:#120e0b}.pop-note{font-size:11.5px;line-height:1.45;color:#d2bd9d;margin:0 0 10px;padding:8px 9px;border-left:2px solid #9d794d;background:#ffffff05}.pop-admin{margin-top:7px}.pop-admin .pop-btn{width:100%;background:#17110c;color:#bfa985}.admin-login{display:grid;gap:7px;margin-top:8px}.admin-status{font:700 10px/1.35 system-ui,sans-serif;color:#9f8b6e}.admin-status.ok{color:#7eaa76}.admin-status.err{color:#c56e62}.admin-tools{display:grid;grid-template-columns:1fr auto;gap:6px;margin-top:8px}.admin-hint{grid-column:1/-1;font-size:10px;line-height:1.4;color:#8f7a60}.map-pick{cursor:crosshair!important}.admin-modal{position:fixed;z-index:3000;inset:0;display:grid;place-items:center;padding:18px;background:#080604b8;backdrop-filter:blur(5px)}.admin-modal[hidden]{display:none}.admin-card{width:min(520px,100%);max-height:calc(100vh - 36px);overflow:auto;border:1px solid #d7bd9145;border-radius:8px;background:linear-gradient(180deg,#211910,#17110c);box-shadow:0 24px 70px #000b;padding:18px}.admin-card h2{margin:4px 0 14px;font-size:23px}.admin-grid{display:grid;grid-template-columns:1fr 110px;gap:10px}.admin-field{display:grid;gap:5px;margin-bottom:10px}.admin-field label{font:800 9px/1 system-ui,sans-serif;letter-spacing:.11em;text-transform:uppercase;color:#9f8057}.admin-field input,.admin-field select,.admin-field textarea{width:100%;border:1px solid #d7bd912f;border-radius:4px;background:#0f0c09;color:#ead9b8;padding:9px 10px;outline:none;font:600 12px/1.35 system-ui,sans-serif}.admin-field textarea{min-height:90px;resize:vertical}.admin-field input:focus,.admin-field select:focus,.admin-field textarea:focus{border-color:#b88a5077}.admin-preview{display:none;width:100%;max-height:240px;object-fit:contain;border:1px solid #d7bd912f;border-radius:5px;background:#0c0907;margin:0 0 10px}.admin-coords{display:flex;justify-content:space-between;gap:10px;align-items:center;margin:6px 0 12px;padding:8px 10px;border:1px solid #d7bd9120;border-radius:4px;color:#a99578;font:700 10px/1.3 system-ui,sans-serif}.admin-actions{display:grid;grid-template-columns:1fr 1fr;gap:7px}.admin-actions .danger{border-color:#9f4f485e;color:#d69a91}.admin-actions .restore{grid-column:1/-1}.admin-busy{opacity:.55;pointer-events:none}@media(max-width:700px){.panel{left:10px;top:10px;width:min(342px,calc(100vw - 20px));max-height:calc(100vh - 20px)}.open-panel{left:10px;top:10px}}
 </style>
 </head>
 <body>
@@ -46,10 +46,46 @@
 <div class="section"><div class="section-title">Visualizza percorso</div><div class="tabs"><button class="tab" data-route="tutte">Tutte</button><button class="tab active" data-route="blu">Blu</button><button class="tab" data-route="gialla">Giallo</button><button class="tab" data-route="rossa">Rosso</button></div></div>
 <div class="section"><div class="stats"><div class="stats-main"><span id="activeLabel">Percorso Blu</span><strong id="activeCount">33 da controllare</strong></div><div class="stats-side" id="percent">0% controllati</div></div><div class="progress"><span id="bar"></span></div><div class="status-legend"><div class="status-pill"><b id="legendUnchecked">33</b>Da controllare</div><div class="status-pill"><b id="legendEmpty">0</b>Vuoti</div><div class="status-pill"><b id="legendSpawned">0</b>Spawnati</div></div><div class="controls"><button class="btn primary" id="nextBtn">Prossimo da controllare</button><button class="btn" id="fitBtn">Centra percorso</button></div><label class="toggle"><span>Nascondi i punti vuoti</span><input type="checkbox" id="hideEmpty"></label></div>
 <div class="section"><div class="section-title">Stato percorsi</div><div class="route-list"><div class="route-row"><i class="dot" style="background:var(--blue)"></i><b>Percorso Blu</b><span id="mini-blu">? 33 · × 0 · ★ 0</span></div><div class="route-row"><i class="dot" style="background:var(--yellow)"></i><b>Percorso Giallo</b><span id="mini-gialla">? 27 · × 0 · ★ 0</span></div><div class="route-row"><i class="dot" style="background:var(--red)"></i><b>Percorso Rosso</b><span id="mini-rossa">? 24 · × 0 · ★ 0</span></div></div></div>
+<div class="section">
+  <div class="section-title">Gestione mappa</div>
+  <button class="btn" id="adminOpen" style="width:100%">Modalità Admin</button>
+  <div class="admin-login" id="adminLogin" style="display:none">
+    <div class="sync-field"><label for="adminKeyInput">Admin key</label><input id="adminKeyInput" type="password" autocomplete="off" placeholder="Inserisci la chiave admin"></div>
+    <div class="controls" style="margin-top:0"><button class="btn primary" id="adminLoginBtn">Accedi</button><button class="btn" id="adminCancelBtn">Annulla</button></div>
+    <div class="admin-status" id="adminStatus">La chiave resta solo in questa scheda.</div>
+  </div>
+  <div class="admin-tools" id="adminTools" style="display:none">
+    <button class="btn primary" id="addMarkerBtn">+ Aggiungi marker</button><button class="btn" id="adminLogoutBtn">Esci</button>
+    <div class="admin-hint" id="adminHint">Puoi modificare i marker dal loro popup oppure aggiungerne uno nuovo cliccando sulla mappa.</div>
+  </div>
+</div>
 <div class="note">Stati: normale = da controllare, × = controllato senza tesoro, ★ = tesoro spawnato. In modalità Gruppo gli stati sono condivisi tra tutti quelli che usano lo stesso codice.</div>
 <button class="reset" id="resetBtn">Azzera la sessione personale</button>
 </aside>
 <button class="open-panel" id="openPanel">Percorsi</button>
+<div class="admin-modal" id="adminModal" hidden>
+  <div class="admin-card" id="adminCard">
+    <div class="kicker">Modifica globale</div>
+    <h2 id="adminModalTitle">Marker tesoro</h2>
+    <div class="admin-grid">
+      <div class="admin-field"><label for="editRoute">Percorso</label><select id="editRoute"><option value="blu">Blu</option><option value="gialla">Giallo</option><option value="rossa">Rosso</option></select></div>
+      <div class="admin-field"><label for="editPoint">Numero</label><input id="editPoint" type="number" min="1" max="999"></div>
+    </div>
+    <div class="admin-field"><label for="editTitle">Titolo</label><input id="editTitle" maxlength="120" placeholder="es. Roccia sopra il sentiero"></div>
+    <div class="admin-field"><label for="editDescription">Descrizione / indicazioni</label><textarea id="editDescription" maxlength="2000" placeholder="Descrivi dove guardare esattamente..."></textarea></div>
+    <div class="admin-field"><label for="editImage">Immagine del punto</label><input id="editImage" type="file" accept="image/png,image/jpeg,image/webp"></div>
+    <img id="editPreview" class="admin-preview" alt="Anteprima immagine">
+    <label class="toggle" id="removeImageWrap" style="margin:0 0 10px"><span>Rimuovi immagine esistente</span><input type="checkbox" id="removeImage"></label>
+    <div class="admin-coords"><span id="editCoords">Coordinate: —</span><button class="btn" id="pickPositionBtn" style="height:30px;padding:0 9px">Scegli sulla mappa</button></div>
+    <div class="admin-actions">
+      <button class="btn primary" id="saveMarkerBtn">Salva globalmente</button>
+      <button class="btn" id="cancelMarkerBtn">Annulla</button>
+      <button class="btn danger" id="deleteMarkerBtn">Elimina marker</button>
+      <button class="btn restore" id="restoreMarkerBtn">Ripristina marker originale</button>
+    </div>
+    <div class="admin-status" id="editorStatus" style="margin-top:10px"></div>
+  </div>
+</div>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="sync-config.js"></script>
@@ -59,7 +95,8 @@ var ROUTES={
  gialla:{label:"Percorso Giallo",color:"#e0ad19",p:[[1,1791.4,723.9],[2,1015.8,1036.7],[3,966.4,1048.5],[4,1151,996.2],[5,882.5,1005.1],[6,898.4,852.1],[7,1025.7,943.9],[8,1150.1,814.7],[9,1089.9,790],[10,996.2,645.9],[11,948.8,551.1],[12,1232.1,409.1],[13,1317,422.9],[14,1685,477.3],[15,1717.5,605.5],[16,1575.4,666.7],[17,1621.2,781.1],[18,1440.2,839.3],[19,1300.1,747.6],[20,1648.4,771.3],[21,1547.8,490.1],[22,1675.1,664.7],[23,1835.9,658.8],[24,1444.2,545.3],[25,1351.4,654.8],[26,1197.5,750.5],[27,1489.7,257.2]]},
  rossa:{label:"Percorso Rosso",color:"#c83232",p:[[1,1147.1,989.2],[2,1022.7,1041.5],[3,898.4,995.2],[4,1020.8,947.8],[6,1158,806.7],[7,1220.2,634.1],[8,1354.4,675.5],[9,1392.9,717],[10,1402.8,588.7],[11,1478.8,530.5],[12,1491.6,474.3],[13,1571.6,391.4],[14,1428.5,390.4],[15,1228.1,675.5],[16,1438.2,833.4],[17,1315.9,663.7],[18,1320.8,744.6],[19,1528,789],[20,1229.1,408.1],[21,1582.5,259.2],[22,1515.3,449.6],[23,1684,477.2],[24,1834.9,659.8],[25,1715.5,744.6]]}
 };
-var POINTS=[];Object.keys(ROUTES).forEach(function(r){ROUTES[r].p.forEach(function(v){POINTS.push({route:r,routeLabel:ROUTES[r].label,number:v[0],x:v[1],y:v[2],color:ROUTES[r].color})})});
+var BASE_POINTS=[];Object.keys(ROUTES).forEach(function(r){ROUTES[r].p.forEach(function(v){BASE_POINTS.push({route:r,routeLabel:ROUTES[r].label,number:v[0],x:v[1],y:v[2],color:ROUTES[r].color,title:"Punto "+v[0],description:"",image_url:"",isBase:true})})});
+var POINTS=BASE_POINTS.map(function(p){return Object.assign({},p)});
 var IMAGE_W=2048,IMAGE_H=1590;
 var LOCAL_KEY="wildlands-treasure-state-v3",MODE_KEY="wildlands-treasure-mode-v3",GROUP_KEY="wildlands-treasure-group-v3",NAME_KEY="wildlands-treasure-name-v3";
 var map=L.map("map",{crs:L.CRS.Simple,minZoom:-2,maxZoom:3,zoomSnap:.25,zoomDelta:.5,wheelPxPerZoomLevel:85,attributionControl:false,zoomControl:false});
@@ -84,6 +121,7 @@ L.control.attribution({position:"bottomright",prefix:"Leaflet"}).addTo(map);
 
 var active="blu",mode=localStorage.getItem(MODE_KEY)==="group"?"group":"personal";
 var states=mode==="group"?{}:loadLocalStates(),markerLayers={},markerIndex=new Map(),supabaseClient=null,syncTimer=null,realtimeChannel=null,groupCode=localStorage.getItem(GROUP_KEY)||"",playerName=localStorage.getItem(NAME_KEY)||"";
+var ADMIN_SESSION_KEY="wildlands-treasure-admin-session",adminKey=sessionStorage.getItem(ADMIN_SESSION_KEY)||"",adminActive=false,addMarkerMode=false,pickPositionMode=false,editingDraft=null,editingOriginalKey=null;
 
 function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(m){return({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"})[m]})}
 function loadLocalStates(){try{return JSON.parse(localStorage.getItem(LOCAL_KEY)||"{}")||{}}catch(e){return {}}}
@@ -95,28 +133,178 @@ function statusFor(p){var s=stateFor(p);return s&&s.status?s.status:"unchecked"}
 function formatTime(v){if(!v)return"";try{return new Date(v).toLocaleTimeString("it-IT",{hour:"2-digit",minute:"2-digit"})}catch(e){return""}}
 function configured(){var x=window.WILDLANDS_SYNC||{};return !!(x.url&&x.anonKey&&window.supabase)}
 function setSyncStatus(kind,text){var d=document.getElementById("syncDot"),s=document.getElementById("syncStatus");d.className="sync-dot"+(kind?" "+kind:"");s.textContent=text}
+function basePointExists(route,point){return BASE_POINTS.some(function(p){return p.route===route&&p.number===point})}
+function nextPointNumber(route){var nums=POINTS.filter(function(p){return p.route===route}).map(function(p){return p.number});return nums.length?Math.max.apply(null,nums)+1:1}
+function sortPoints(a,b){var order={blu:0,gialla:1,rossa:2};return (order[a.route]-order[b.route])||(a.number-b.number)}
+async function loadGlobalPoints(){
+  POINTS=BASE_POINTS.map(function(p){return Object.assign({},p)});
+  if(setupSupabase()){
+    try{
+      var res=await supabaseClient.rpc("get_treasure_point_overrides");
+      if(res.error)throw res.error;
+      var byKey=new Map(POINTS.map(function(p){return[k(p),p]}));
+      (res.data||[]).forEach(function(row){
+        var key=row.route+"-"+row.point;
+        if(row.active===false){byKey.delete(key);return}
+        var base=byKey.get(key);
+        var p=base?Object.assign({},base):{
+          route:row.route,routeLabel:ROUTES[row.route].label,number:row.point,
+          color:ROUTES[row.route].color,title:"Punto "+row.point,description:"",image_url:"",isBase:false
+        };
+        p.x=row.x;p.y=row.y;
+        p.title=row.title||("Punto "+row.point);
+        p.description=row.description||"";
+        p.image_url=row.image_url||"";
+        p.isBase=base?true:false;
+        byKey.set(key,p);
+      });
+      POINTS=Array.from(byKey.values()).sort(sortPoints);
+    }catch(e){console.error("Global marker load failed",e)}
+  }
+  rebuildMarkers();
+  refreshAll();
+}
+async function verifyAdminKey(key,silent){
+  if(!setupSupabase())return false;
+  try{
+    var res=await supabaseClient.rpc("admin_check_treasure_key",{p_admin_key:key});
+    if(res.error)throw res.error;
+    adminActive=res.data===true;
+    if(adminActive){adminKey=key;sessionStorage.setItem(ADMIN_SESSION_KEY,key)}
+    else if(!silent){setAdminStatus("err","Chiave non valida.")}
+    updateAdminUI();refreshAll();
+    return adminActive;
+  }catch(e){console.error(e);if(!silent)setAdminStatus("err","Impossibile verificare la chiave.");return false}
+}
+function setAdminStatus(kind,text){var el=document.getElementById("adminStatus");el.className="admin-status"+(kind?" "+kind:"");el.textContent=text}
+function updateAdminUI(){
+  document.getElementById("adminTools").style.display=adminActive?"grid":"none";
+  document.getElementById("adminOpen").style.display=adminActive?"none":"block";
+  if(adminActive)document.getElementById("adminLogin").style.display="none";
+}
+function setMapPick(on,text){
+  addMarkerMode=!!on;
+  document.getElementById("map").classList.toggle("map-pick",!!on||pickPositionMode);
+  document.getElementById("addMarkerBtn").textContent=on?"Annulla aggiunta":"+ Aggiungi marker";
+  document.getElementById("adminHint").textContent=text||(on?"Clicca il punto esatto sulla mappa.":"Puoi modificare i marker dal loro popup oppure aggiungerne uno nuovo cliccando sulla mappa.");
+}
+function rebuildMarkers(){
+  Object.keys(markerLayers).forEach(function(r){map.removeLayer(markerLayers[r]);markerLayers[r].clearLayers()});
+  markerIndex.clear();
+  POINTS.forEach(function(p){
+    var m=L.marker(ll(p),{icon:icon(p),title:p.routeLabel+" — "+(p.title||("Punto "+p.number))});
+    m.bindPopup(function(){return popup(p)});
+    m.on("popupopen",function(){setTimeout(function(){wirePopup(p)},0)});
+    markerLayers[p.route].addLayer(m);
+    markerIndex.set(k(p),{marker:m,point:p});
+  });
+}
+function wirePopup(p){
+  document.querySelectorAll('.pop-btn[data-key="'+k(p)+'"][data-state]').forEach(function(b){b.onclick=function(){setPointState(p,b.dataset.state)}});
+  var edit=document.querySelector('.pop-admin-edit[data-key="'+k(p)+'"]');
+  if(edit)edit.onclick=function(){openAdminEditor(p,false)};
+}
+function openAdminEditor(p,isNew){
+  if(!adminActive)return;
+  editingDraft=Object.assign({},p);
+  editingOriginalKey=isNew?null:k(p);
+  document.getElementById("adminModalTitle").textContent=isNew?"Nuovo marker globale":"Modifica marker globale";
+  document.getElementById("editRoute").value=p.route;
+  document.getElementById("editPoint").value=p.number;
+  document.getElementById("editTitle").value=p.title||("Punto "+p.number);
+  document.getElementById("editDescription").value=p.description||"";
+  document.getElementById("editImage").value="";
+  document.getElementById("removeImage").checked=false;
+  document.getElementById("removeImageWrap").style.display=p.image_url?"flex":"none";
+  var prev=document.getElementById("editPreview");
+  if(p.image_url){prev.src=p.image_url;prev.style.display="block"}else{prev.removeAttribute("src");prev.style.display="none"}
+  document.getElementById("editCoords").textContent="Coordinate: "+p.x.toFixed(1)+", "+p.y.toFixed(1);
+  document.getElementById("deleteMarkerBtn").style.display=isNew?"none":"block";
+  document.getElementById("restoreMarkerBtn").style.display=!isNew&&basePointExists(p.route,p.number)?"block":"none";
+  document.getElementById("editorStatus").textContent="";
+  document.getElementById("adminModal").hidden=false;
+}
+function closeAdminEditor(){document.getElementById("adminModal").hidden=true;pickPositionMode=false;document.getElementById("map").classList.toggle("map-pick",addMarkerMode)}
+function readFileAsDataURL(blob){return new Promise(function(resolve,reject){var r=new FileReader();r.onload=function(){resolve(r.result)};r.onerror=reject;r.readAsDataURL(blob)})}
+async function compressImage(file){
+  var url=URL.createObjectURL(file);
+  try{
+    var img=await new Promise(function(resolve,reject){var im=new Image();im.onload=function(){resolve(im)};im.onerror=reject;im.src=url});
+    var max=1600,scale=Math.min(1,max/Math.max(img.naturalWidth,img.naturalHeight)),w=Math.max(1,Math.round(img.naturalWidth*scale)),h=Math.max(1,Math.round(img.naturalHeight*scale));
+    var canvas=document.createElement("canvas");canvas.width=w;canvas.height=h;
+    canvas.getContext("2d").drawImage(img,0,0,w,h);
+    var blob=await new Promise(function(resolve){canvas.toBlob(resolve,"image/webp",.86)});
+    if(!blob)throw new Error("Compressione immagine non riuscita");
+    return {base64:await readFileAsDataURL(blob),contentType:blob.type||"image/webp"};
+  }finally{URL.revokeObjectURL(url)}
+}
+async function uploadMarkerImage(file,route,point){
+  var prepared=await compressImage(file),cfg=window.WILDLANDS_SYNC;
+  var res=await fetch(cfg.url+"/functions/v1/treasure-image-upload",{
+    method:"POST",
+    headers:{"Content-Type":"application/json","apikey":cfg.anonKey},
+    body:JSON.stringify({adminKey:adminKey,route:route,point:point,imageBase64:prepared.base64,contentType:prepared.contentType})
+  });
+  var data=await res.json();
+  if(!res.ok)throw new Error(data.error||"Upload immagine non riuscito");
+  return data.publicUrl;
+}
+async function saveAdminPoint(){
+  if(!editingDraft||!adminActive)return;
+  var route=document.getElementById("editRoute").value,point=parseInt(document.getElementById("editPoint").value,10);
+  if(!ROUTES[route]||!Number.isFinite(point)||point<1){document.getElementById("editorStatus").textContent="Percorso o numero non valido.";return}
+  var title=document.getElementById("editTitle").value.trim(),description=document.getElementById("editDescription").value.trim(),imageUrl=editingDraft.image_url||"";
+  var file=document.getElementById("editImage").files[0];
+  var card=document.getElementById("adminCard");card.classList.add("admin-busy");document.getElementById("editorStatus").textContent="Salvataggio…";
+  try{
+    if(document.getElementById("removeImage").checked)imageUrl="";
+    if(file)imageUrl=await uploadMarkerImage(file,route,point);
+    var res=await supabaseClient.rpc("admin_upsert_treasure_point",{
+      p_admin_key:adminKey,p_route:route,p_point:point,p_x:editingDraft.x,p_y:editingDraft.y,
+      p_title:title,p_description:description,p_image_url:imageUrl
+    });
+    if(res.error)throw res.error;
+    var newKey=route+"-"+point;
+    if(editingOriginalKey&&editingOriginalKey!==newKey){
+      var old=editingOriginalKey.split("-");
+      var del=await supabaseClient.rpc("admin_delete_treasure_point",{p_admin_key:adminKey,p_route:old[0],p_point:parseInt(old[1],10)});
+      if(del.error)throw del.error;
+    }
+    closeAdminEditor();setMapPick(false);await loadGlobalPoints();
+  }catch(e){console.error(e);document.getElementById("editorStatus").textContent=e.message||"Errore durante il salvataggio."}
+  finally{card.classList.remove("admin-busy")}
+}
+async function deleteAdminPoint(){
+  if(!editingDraft||!editingOriginalKey)return;
+  if(!confirm("Eliminare questo marker per tutti?"))return;
+  var parts=editingOriginalKey.split("-");
+  var res=await supabaseClient.rpc("admin_delete_treasure_point",{p_admin_key:adminKey,p_route:parts[0],p_point:parseInt(parts[1],10)});
+  if(res.error){document.getElementById("editorStatus").textContent=res.error.message;return}
+  closeAdminEditor();await loadGlobalPoints();
+}
+async function restoreAdminPoint(){
+  if(!editingOriginalKey)return;
+  if(!confirm("Ripristinare posizione, titolo, descrizione e immagine originali di questo marker?"))return;
+  var parts=editingOriginalKey.split("-");
+  var res=await supabaseClient.rpc("admin_reset_treasure_point_override",{p_admin_key:adminKey,p_route:parts[0],p_point:parseInt(parts[1],10)});
+  if(res.error){document.getElementById("editorStatus").textContent=res.error.message;return}
+  closeAdminEditor();await loadGlobalPoints();
+}
 function icon(p){var st=statusFor(p),cls=st==="empty"?" empty":st==="spawned"?" spawned":"";return L.divIcon({className:"treasure-icon",html:'<div class="pin'+cls+'" style="--pin:'+p.color+'"><span>'+p.number+"</span></div>",iconSize:[28,35],iconAnchor:[14,34],popupAnchor:[0,-30]})}
 function popup(p){
-  var s=stateFor(p),st=statusFor(p),desc="Da controllare.";
-  if(st==="empty")desc="Controllato: nessun tesoro spawnato.";
-  if(st==="spawned")desc="Tesoro spawnato: questo punto è attivo.";
+  var s=stateFor(p),st=statusFor(p),statusText="Da controllare.";
+  if(st==="empty")statusText="Controllato: nessun tesoro spawnato.";
+  if(st==="spawned")statusText="Tesoro spawnato: questo punto è attivo.";
   var meta=s&&s.updated_by?'<div class="pop-meta">Aggiornato da '+esc(s.updated_by)+(s.updated_at?" · "+esc(formatTime(s.updated_at)):"")+'</div>':"";
-  return '<div class="pop-k">'+p.routeLabel+'</div><div class="pop-t">Punto '+p.number+'</div><div class="pop-s">'+desc+'</div>'+meta+
+  var image=p.image_url?'<a href="'+esc(p.image_url)+'" target="_blank" rel="noopener"><img class="pop-image" src="'+esc(p.image_url)+'" alt="Riferimento del punto '+p.number+'"></a>':"";
+  var note=p.description?'<div class="pop-note">'+esc(p.description).replace(/\n/g,"<br>")+'</div>':"";
+  var admin=adminActive?'<div class="pop-admin"><button class="pop-btn pop-admin-edit" data-key="'+k(p)+'">Modifica scheda globale</button></div>':"";
+  return '<div class="pop-k">'+p.routeLabel+'</div><div class="pop-t">'+esc(p.title||("Punto "+p.number))+'</div>'+image+note+
+    '<div class="pop-s">'+statusText+'</div>'+meta+
     '<div class="pop-actions"><button class="pop-btn empty-action" data-state="empty" data-key="'+k(p)+'">× Nessun tesoro</button><button class="pop-btn spawn-action" data-state="spawned" data-key="'+k(p)+'">★ Tesoro spawnato</button>'+
-    (st!=="unchecked"?'<button class="pop-btn reset-action" data-state="unchecked" data-key="'+k(p)+'">Ripristina · Da controllare</button>':"")+'</div>';
+    (st!=="unchecked"?'<button class="pop-btn reset-action" data-state="unchecked" data-key="'+k(p)+'">Ripristina · Da controllare</button>':"")+'</div>'+admin;
 }
-
 Object.keys(ROUTES).forEach(function(r){markerLayers[r]=L.layerGroup()});
-POINTS.forEach(function(p){
-  var m=L.marker(ll(p),{icon:icon(p),title:p.routeLabel+" — "+p.number});
-  m.bindPopup(function(){return popup(p)});
-  m.on("popupopen",function(){setTimeout(function(){
-    document.querySelectorAll('.pop-btn[data-key="'+k(p)+'"]').forEach(function(b){
-      b.onclick=function(){setPointState(p,b.dataset.state)};
-    });
-  },0)});
-  markerLayers[p.route].addLayer(m);markerIndex.set(k(p),{marker:m,point:p});
-});
 
 function routePoints(r){return r==="tutte"?POINTS:POINTS.filter(function(p){return p.route===r})}
 function currentBounds(){return L.latLngBounds(routePoints(active).map(ll))}
@@ -136,7 +324,7 @@ function counts(pts){
   return out;
 }
 function refreshAll(){
-  markerIndex.forEach(function(v){v.marker.setIcon(icon(v.point));if(v.marker.isPopupOpen())v.marker.setPopupContent(popup(v.point))});
+  markerIndex.forEach(function(v){v.marker.setIcon(icon(v.point));if(v.marker.isPopupOpen()){v.marker.setPopupContent(popup(v.point));setTimeout(function(){wirePopup(v.point)},0)}});
   applyLayers();
   Object.keys(ROUTES).forEach(function(r){var c=counts(routePoints(r));document.getElementById("mini-"+r).textContent="? "+c.unchecked+" · × "+c.empty+" · ★ "+c.spawned});
   var pts=routePoints(active),c=counts(pts),checked=c.empty+c.spawned,pct=pts.length?Math.round(checked/pts.length*100):0;
@@ -157,7 +345,7 @@ async function setPointState(p,status){
   if(status==="unchecked")delete states[key];
   else states[key]={status:status,updated_by:playerName||"Tu",updated_at:new Date().toISOString()};
   refreshAll();
-  markerIndex.get(key).marker.setPopupContent(popup(p));
+  var activeMarker=markerIndex.get(key);if(activeMarker&&activeMarker.marker.isPopupOpen()){activeMarker.marker.setPopupContent(popup(p));setTimeout(function(){wirePopup(p)},0)}
   if(mode==="personal"){saveLocalStates();return}
   if(!configured()||!supabaseClient){states[key]=previous;refreshAll();setSyncStatus("error","Backend gruppo non configurato.");return}
   try{
@@ -257,14 +445,44 @@ document.getElementById("resetBtn").onclick=async function(){
   }catch(e){setSyncStatus("error","Errore durante il reset del gruppo.");console.error(e)}
 };
 
+document.getElementById("adminOpen").onclick=function(){document.getElementById("adminLogin").style.display="grid";document.getElementById("adminOpen").style.display="none";document.getElementById("adminKeyInput").focus()};
+document.getElementById("adminCancelBtn").onclick=function(){document.getElementById("adminLogin").style.display="none";document.getElementById("adminOpen").style.display="block"};
+document.getElementById("adminLoginBtn").onclick=async function(){var key=document.getElementById("adminKeyInput").value.trim();setAdminStatus("","Verifica…");if(await verifyAdminKey(key,false))setAdminStatus("ok","Modalità Admin attiva.")};
+document.getElementById("adminKeyInput").addEventListener("keydown",function(e){if(e.key==="Enter")document.getElementById("adminLoginBtn").click()});
+document.getElementById("adminLogoutBtn").onclick=function(){adminActive=false;adminKey="";sessionStorage.removeItem(ADMIN_SESSION_KEY);setMapPick(false);updateAdminUI();refreshAll()};
+document.getElementById("addMarkerBtn").onclick=function(){if(!adminActive)return;setMapPick(!addMarkerMode)};
+document.getElementById("cancelMarkerBtn").onclick=closeAdminEditor;
+document.getElementById("saveMarkerBtn").onclick=saveAdminPoint;
+document.getElementById("deleteMarkerBtn").onclick=deleteAdminPoint;
+document.getElementById("restoreMarkerBtn").onclick=restoreAdminPoint;
+document.getElementById("pickPositionBtn").onclick=function(){if(!editingDraft)return;pickPositionMode=true;document.getElementById("adminModal").hidden=true;document.getElementById("map").classList.add("map-pick");document.getElementById("adminHint").textContent="Clicca sulla nuova posizione del marker."};
+document.getElementById("editImage").onchange=function(){var file=this.files[0],prev=document.getElementById("editPreview");if(!file)return;prev.src=URL.createObjectURL(file);prev.style.display="block"};
+map.on("click",function(e){
+  if(!adminActive)return;
+  var x=e.latlng.lng,y=-e.latlng.lat;
+  if(x<0||x>IMAGE_W||y<0||y>IMAGE_H)return;
+  if(pickPositionMode&&editingDraft){
+    editingDraft.x=x;editingDraft.y=y;pickPositionMode=false;openAdminEditor(editingDraft,editingOriginalKey===null);return;
+  }
+  if(addMarkerMode){
+    var route=active==="tutte"?"blu":active;
+    openAdminEditor({route:route,routeLabel:ROUTES[route].label,number:nextPointNumber(route),x:x,y:y,color:ROUTES[route].color,title:"",description:"",image_url:"",isBase:false},true);
+  }
+});
+
 var panel=document.getElementById("panel"),open=document.getElementById("openPanel");
 document.getElementById("closePanel").onclick=function(){panel.classList.add("closed");open.classList.add("show")};
 open.onclick=function(){panel.classList.remove("closed");open.classList.remove("show")};
 
-updateModeUI();fitActive();
-if(mode==="group"&&groupCode&&playerName){
-  if(configured()){enterGroup()}else setSyncStatus("error","Il backend condiviso deve ancora essere collegato.");
-}
+(async function init(){
+  updateModeUI();
+  await loadGlobalPoints();
+  fitActive();
+  if(adminKey)await verifyAdminKey(adminKey,true);
+  if(mode==="group"&&groupCode&&playerName){
+    if(configured()){await enterGroup()}else setSyncStatus("error","Il backend condiviso deve ancora essere collegato.");
+  }
+})();
 
 </script>
 </body>
