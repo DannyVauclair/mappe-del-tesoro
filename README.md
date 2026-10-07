@@ -1,51 +1,74 @@
 # Wildlands — Mappe del Tesoro
 
-Mappa interattiva per RedM / Wildlands costruita sulle tre route fornite.
+Mappa interattiva per RedM / Wildlands con route condivise, sessioni di gruppo e gestione globale dei marker.
 
 ## Funzioni
 
 - Route **Blu**, **Gialla** e **Rossa**
-- **84 marker** numerati nell'ordine da seguire
-- zoom e trascinamento della mappa
+- marker numerati nell'ordine da seguire
+- mappa **multirisoluzione a tasselli**:
+  - zoom 0: 2048 × 1590
+  - zoom 1: 4096 × 3180
+  - zoom 2: 8192 × 6360
+  - zoom 3: 16384 × 12720
+- zoom e trascinamento fluidi
 - filtro per singola route o tutte insieme
 - pulsante **Prossimo da controllare**
 - tre stati per ogni punto:
   - **Da controllare**
   - **Nessun tesoro** (×)
   - **Tesoro spawnato** (★)
-- filtro per nascondere i punti già controllati e vuoti
+- filtro per nascondere i punti vuoti
 - conteggi per route: da controllare / vuoti / spawnati
-- layout responsive per desktop e mobile
+- layout responsive desktop/mobile
 
-## Sessione personale
+## Sessione personale e gruppo
 
-In modalità **Personale** gli stati sono salvati nel browser tramite `localStorage`.
-Non vengono condivisi con altri giocatori.
+In modalità **Personale** gli stati sono salvati nel browser.
 
-## Sessione gruppo
+In modalità **Gruppo** tutti quelli che usano lo stesso codice condividono:
+- × nessun tesoro
+- ★ tesoro spawnato
+- autore e orario dell'ultimo aggiornamento
+- reset del giro
 
-La UI per la modalità **Gruppo** è già integrata.
+Gli aggiornamenti vengono propagati live e riallineati periodicamente con Supabase.
 
-Quando Supabase è configurato:
-- tutti i giocatori che inseriscono lo stesso codice gruppo condividono gli stati;
-- un aggiornamento viene propagato in tempo quasi reale e viene comunque riallineato automaticamente ogni 3 secondi;
-- il popup mostra chi ha aggiornato il punto e l'orario;
-- **Inizia un nuovo giro per tutti** resetta la sessione condivisa;
-- il codice gruppo viene trasformato in hash nel database e la tabella non è accessibile direttamente dal browser.
+## Marker globali
 
-File backend:
-- `supabase/schema.sql` — tabella e funzioni RPC
-- `sync-config.js` — URL Supabase e chiave anon/publishable pubblica del progetto
+Titolo, descrizione, immagine, coordinate e nuovi marker sono **globali** e visibili a tutti.
 
-Non inserire mai una service-role key nel repository.
+La modalità **Admin** permette di:
+- modificare un marker esistente;
+- aggiungere un marker cliccando direttamente sulla mappa;
+- cambiare titolo e descrizione;
+- caricare un'immagine di riferimento;
+- cambiare la posizione;
+- eliminare un marker;
+- ripristinare un marker originale.
+
+Le immagini vengono compresse nel browser e caricate nel bucket pubblico Supabase `treasure-images`.
+La chiave Admin non è salvata nel repository e resta solo nella sessione del browser.
+
+## Backend
+
+Supabase gestisce:
+- stato condiviso dei gruppi;
+- override globali dei marker;
+- Storage delle immagini;
+- Edge Function `treasure-image-upload`.
+
+File principali:
+- `supabase/schema.sql`
+- `supabase/global-markers.sql`
+- `supabase/functions/treasure-image-upload/index.ts`
+- `sync-config.js`
 
 ## Mappa base
 
-La base è la versione pulita fornita per il progetto, allineata alle tre reference dei tesori.
+La sorgente cartografica è 21617 × 16785 px. Durante il deploy GitHub Pages viene trasformata in una piramide di **4264 tile WebP**, circa 14 MB complessivi, così il browser carica solo i tasselli necessari al livello di zoom corrente.
 
-Dimensioni cartografiche: **2048 × 1590 px**.
-
-## Route
+## Route iniziali
 
 - **Blu:** 33 punti visibili nella reference (manca il n. 27)
 - **Gialla:** 27 punti
