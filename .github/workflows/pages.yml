@@ -27,6 +27,68 @@ jobs:
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
+      - name: Build clean base map
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p assets /tmp/rdr-map
+          curl -L --fail --retry 3 --retry-delay 2 \
+            -A "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36" \
+            "https://allmods.net/download-mod/100065" \
+            -o /tmp/rdr-map/map.zip
+          python -m pip install --quiet pillow
+          python <<'PY'
+          from pathlib import Path
+          from PIL import Image, ImageFilter, ImageEnhance
+          import zipfile
+
+          archive = Path("/tmp/rdr-map/map.zip")
+          extract = Path("/tmp/rdr-map/src")
+          extract.mkdir(parents=True, exist_ok=True)
+
+          with zipfile.ZipFile(archive) as z:
+              z.extractall(extract)
+
+          candidates = [
+              p for p in extract.rglob("*")
+              if p.suffix.lower() in {".png", ".jpg", ".jpeg", ".webp"}
+          ]
+          if not candidates:
+              raise RuntimeError("No map image found in downloaded archive")
+
+          source = max(candidates, key=lambda p: p.stat().st_size)
+          print("Using source:", source, source.stat().st_size)
+
+          img = Image.open(source).convert("RGB")
+          img = img.resize((2048, 1590), Image.Resampling.LANCZOS)
+
+          # The source map includes decorative labels/scale bars in otherwise
+          # empty parchment. Rebuild those regions using a clean parchment
+          # sample from the map itself so treasure coordinates remain untouched.
+          parchment = img.crop((40, 330, 600, 900)).filter(ImageFilter.GaussianBlur(1.2))
+
+          def parchment_fill(box):
+              x0, y0, x1, y1 = box
+              w, h = x1 - x0, y1 - y0
+              patch = parchment.resize((w, h), Image.Resampling.LANCZOS)
+              # Match the nearby paper luminance to avoid visible seams.
+              ring = img.crop((max(0, x0-18), max(0, y0-18),
+                               min(img.width, x1+18), min(img.height, y1+18)))
+              target = sum(ImageEnhance.Brightness(ring.convert("L")).enhance(1).getdata()) / max(1, ring.width*ring.height)
+              current = sum(patch.convert("L").getdata()) / max(1, patch.width*patch.height)
+              if current:
+                  patch = ImageEnhance.Brightness(patch).enhance(target/current)
+              img.paste(patch, (x0, y0))
+
+          parchment_fill((0, 0, 650, 320))          # Railroad Engineer logo
+          parchment_fill((1020, 1330, 1995, 1535)) # scale bars
+          parchment_fill((1980, 1520, 2048, 1590)) # tiny lower-right mark
+
+          out = Path("assets/Mappa4K.webp")
+          img.save(out, "WEBP", quality=88, method=6)
+          print("Generated:", out, out.stat().st_size)
+          PY
+
       - name: Upload site
         uses: actions/upload-pages-artifact@v3
         with:
