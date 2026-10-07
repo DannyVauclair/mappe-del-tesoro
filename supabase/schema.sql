@@ -111,7 +111,7 @@ begin
 end;
 $$;
 
-revoke all on function public.treasure_group_hash(text) from public;
+revoke all on function public.treasure_group_hash(text) from public, anon, authenticated;
 revoke all on function public.get_treasure_group_state(text) from public;
 revoke all on function public.set_treasure_point_state(text,text,integer,text,text) from public;
 revoke all on function public.reset_treasure_group_state(text) from public;
