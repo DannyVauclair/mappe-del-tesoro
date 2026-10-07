@@ -120,7 +120,7 @@ map.setMaxBounds([[-IMAGE_H-260,-260],[260,IMAGE_W+260]]);
 L.control.attribution({position:"bottomright",prefix:"Leaflet"}).addTo(map);
 
 var active="blu",mode=localStorage.getItem(MODE_KEY)==="group"?"group":"personal";
-var states=mode==="group"?{}:loadLocalStates(),markerLayers={},markerIndex=new Map(),supabaseClient=null,syncTimer=null,realtimeChannel=null,groupCode=localStorage.getItem(GROUP_KEY)||"",playerName=localStorage.getItem(NAME_KEY)||"";
+var states=mode==="group"?{}:loadLocalStates(),markerLayers={},markerIndex=new Map(),supabaseClient=null,syncTimer=null,realtimeChannel=null,globalMarkerChannel=null,groupCode=localStorage.getItem(GROUP_KEY)||"",playerName=localStorage.getItem(NAME_KEY)||"";
 var ADMIN_SESSION_KEY="wildlands-treasure-admin-session",adminKey=sessionStorage.getItem(ADMIN_SESSION_KEY)||"",adminActive=false,addMarkerMode=false,pickPositionMode=false,editingDraft=null,editingOriginalKey=null;
 
 function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(m){return({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"})[m]})}
@@ -270,7 +270,7 @@ async function saveAdminPoint(){
       var del=await supabaseClient.rpc("admin_delete_treasure_point",{p_admin_key:adminKey,p_route:old[0],p_point:parseInt(old[1],10)});
       if(del.error)throw del.error;
     }
-    closeAdminEditor();setMapPick(false);await loadGlobalPoints();
+    closeAdminEditor();setMapPick(false);await loadGlobalPoints();await broadcastGlobalMarkerChange();
   }catch(e){console.error(e);document.getElementById("editorStatus").textContent=e.message||"Errore durante il salvataggio."}
   finally{card.classList.remove("admin-busy")}
 }
@@ -280,7 +280,7 @@ async function deleteAdminPoint(){
   var parts=editingOriginalKey.split("-");
   var res=await supabaseClient.rpc("admin_delete_treasure_point",{p_admin_key:adminKey,p_route:parts[0],p_point:parseInt(parts[1],10)});
   if(res.error){document.getElementById("editorStatus").textContent=res.error.message;return}
-  closeAdminEditor();await loadGlobalPoints();
+  closeAdminEditor();await loadGlobalPoints();await broadcastGlobalMarkerChange();
 }
 async function restoreAdminPoint(){
   if(!editingOriginalKey)return;
@@ -288,7 +288,7 @@ async function restoreAdminPoint(){
   var parts=editingOriginalKey.split("-");
   var res=await supabaseClient.rpc("admin_reset_treasure_point_override",{p_admin_key:adminKey,p_route:parts[0],p_point:parseInt(parts[1],10)});
   if(res.error){document.getElementById("editorStatus").textContent=res.error.message;return}
-  closeAdminEditor();await loadGlobalPoints();
+  closeAdminEditor();await loadGlobalPoints();await broadcastGlobalMarkerChange();
 }
 function icon(p){var st=statusFor(p),cls=st==="empty"?" empty":st==="spawned"?" spawned":"";return L.divIcon({className:"treasure-icon",html:'<div class="pin'+cls+'" style="--pin:'+p.color+'"><span>'+p.number+"</span></div>",iconSize:[28,35],iconAnchor:[14,34],popupAnchor:[0,-30]})}
 function popup(p){
@@ -365,6 +365,15 @@ function setupSupabase(){
   if(!configured())return false;
   if(!supabaseClient){var cfg=window.WILDLANDS_SYNC;supabaseClient=window.supabase.createClient(cfg.url,cfg.anonKey,{auth:{persistSession:false,autoRefreshToken:false}})}
   return true;
+}
+async function startGlobalMarkerRealtime(){
+  if(!setupSupabase()||globalMarkerChannel)return;
+  globalMarkerChannel=supabaseClient.channel("treasure-global-map")
+    .on("broadcast",{event:"marker-change"},function(){loadGlobalPoints()})
+    .subscribe();
+}
+async function broadcastGlobalMarkerChange(){
+  if(globalMarkerChannel)await globalMarkerChannel.send({type:"broadcast",event:"marker-change",payload:{at:Date.now()}});
 }
 async function channelName(code){
   try{var bytes=new TextEncoder().encode(code.trim().toLowerCase()),hash=await crypto.subtle.digest("SHA-256",bytes),arr=Array.from(new Uint8Array(hash));return"treasure-"+arr.map(function(b){return b.toString(16).padStart(2,"0")}).join("").slice(0,28)}
@@ -476,6 +485,7 @@ open.onclick=function(){panel.classList.remove("closed");open.classList.remove("
 
 (async function init(){
   await loadGlobalPoints();
+  await startGlobalMarkerRealtime();
   updateModeUI();
   fitActive();
   if(adminKey)await verifyAdminKey(adminKey,true);
