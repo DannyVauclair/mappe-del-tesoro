@@ -1,7 +1,7 @@
 // Configurazione pubblica del client Supabase.
-// URL del progetto e chiave anon/publishable verranno inseriti dopo la connessione del backend.
-// La chiave anon di Supabase è pensata per essere usata nel browser; NON inserire mai una service-role key qui.
+// Questa è una publishable key, sicura per l'uso nel browser.
+// NON inserire mai una service-role key in questo file.
 window.WILDLANDS_SYNC = {
-  url: "",
-  anonKey: ""
+  url: "https://bvihgkzztxksmzdjtniy.supabase.co",
+  anonKey: "sb_publishable_kXVblfFaJZzSIPHbQYs6ig_0do9tewr"
 };
