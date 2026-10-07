@@ -75,7 +75,7 @@ map.setMaxBounds([[-IMAGE_H-260,-260],[260,IMAGE_W+260]]);
 L.control.attribution({position:"bottomright",prefix:"Leaflet"}).addTo(map);
 
 var active="blu",mode=localStorage.getItem(MODE_KEY)==="group"?"group":"personal";
-var states=loadLocalStates(),markerLayers={},markerIndex=new Map(),supabaseClient=null,syncTimer=null,realtimeChannel=null,groupCode=localStorage.getItem(GROUP_KEY)||"",playerName=localStorage.getItem(NAME_KEY)||"";
+var states=mode==="group"?{}:loadLocalStates(),markerLayers={},markerIndex=new Map(),supabaseClient=null,syncTimer=null,realtimeChannel=null,groupCode=localStorage.getItem(GROUP_KEY)||"",playerName=localStorage.getItem(NAME_KEY)||"";
 
 function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(m){return({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"})[m]})}
 function loadLocalStates(){try{return JSON.parse(localStorage.getItem(LOCAL_KEY)||"{}")||{}}catch(e){return {}}}
@@ -229,7 +229,7 @@ document.getElementById("nextBtn").onclick=function(){
   var item=markerIndex.get(k(p));map.setView(ll(p),Math.max(map.getZoom(),.85),{animate:true});item.marker.openPopup();var el=item.marker.getElement();if(el){el.classList.remove("pulse");void el.offsetWidth;el.classList.add("pulse")}
 };
 document.getElementById("personalMode").onclick=function(){leaveGroup()};
-document.getElementById("groupMode").onclick=function(){mode="group";localStorage.setItem(MODE_KEY,"group");updateModeUI();setSyncStatus(configured()?"":"error",configured()?"Inserisci codice e nome, poi sincronizza.":"Il backend condiviso deve ancora essere collegato.")};
+document.getElementById("groupMode").onclick=function(){mode="group";states={};localStorage.setItem(MODE_KEY,"group");updateModeUI();setSyncStatus(configured()?"":"error",configured()?"Inserisci codice e nome, poi sincronizza.":"Il backend condiviso deve ancora essere collegato.")};
 document.getElementById("joinGroup").onclick=enterGroup;
 document.getElementById("leaveGroup").onclick=leaveGroup;
 document.getElementById("resetBtn").onclick=async function(){
