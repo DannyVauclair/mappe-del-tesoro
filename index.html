@@ -65,12 +65,20 @@ var LOCAL_KEY="wildlands-treasure-state-v3",MODE_KEY="wildlands-treasure-mode-v3
 var map=L.map("map",{crs:L.CRS.Simple,minZoom:-2,maxZoom:3,zoomSnap:.25,zoomDelta:.5,wheelPxPerZoomLevel:85,attributionControl:false,zoomControl:false});
 L.control.zoom({position:"topright"}).addTo(map);
 var imageBounds=[[-IMAGE_H,0],[0,IMAGE_W]];
-var MAP_SRC="assets/Mappa4K.webp?v=4";
-var baseOverlay=L.imageOverlay(MAP_SRC,imageBounds,{interactive:false}).addTo(map);
+var baseTiles=L.tileLayer("tiles/{z}/{x}/{y}.webp?v=6",{
+  tileSize:256,
+  noWrap:true,
+  bounds:imageBounds,
+  minNativeZoom:0,
+  maxNativeZoom:3,
+  maxZoom:3,
+  updateWhenIdle:false,
+  keepBuffer:4
+}).addTo(map);
 var testImg=new Image();
 testImg.onerror=function(){document.getElementById("mapMissing").style.display="block"};
 testImg.onload=function(){document.getElementById("mapMissing").style.display="none"};
-testImg.src=MAP_SRC;
+testImg.src="tiles/0/0/0.webp?v=6";
 map.setMaxBounds([[-IMAGE_H-260,-260],[260,IMAGE_W+260]]);
 L.control.attribution({position:"bottomright",prefix:"Leaflet"}).addTo(map);
 
