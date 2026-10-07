@@ -40,6 +40,7 @@ jobs:
           from pathlib import Path
           from PIL import Image, ImageFilter, ImageEnhance
 
+          Image.MAX_IMAGE_PIXELS = None
           source = Path("/tmp/rdr-map/source.png")
           print("Downloaded source:", source.stat().st_size)
 
