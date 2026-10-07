@@ -22,6 +22,9 @@
 </head>
 <body>
 <div id="map" aria-label="Mappa interattiva dei tesori di Wildlands"></div>
+<div id="mapMissing" style="display:none;position:absolute;z-index:1200;left:50%;top:50%;transform:translate(-50%,-50%);max-width:520px;padding:18px 22px;border:1px solid #8f6d45;background:#211910f2;color:#ead9b8;border-radius:6px;box-shadow:0 12px 40px #0008;text-align:center;font:14px/1.5 Georgia,serif">
+  Mappa base non trovata. Carica <b>Mappa4K.png</b> nella cartella <b>assets</b> del repository.
+</div>
 <aside class="panel" id="panel">
 <div class="head"><div><div class="kicker">RedM · Wildlands</div><h1>Mappe del Tesoro</h1><p class="intro">Tre percorsi, numerati nell'ordine da seguire. Seleziona un colore e segna i punti già completati.</p></div><button class="close" id="closePanel" aria-label="Chiudi pannello">×</button></div>
 <div class="section"><div class="section-title">Visualizza percorso</div><div class="tabs"><button class="tab" data-route="tutte">Tutte</button><button class="tab active" data-route="blu">Blu</button><button class="tab" data-route="gialla">Giallo</button><button class="tab" data-route="rossa">Rosso</button></div></div>
@@ -31,7 +34,6 @@
 <button class="reset" id="resetBtn">Azzera tutti i progressi</button>
 </aside>
 <button class="open-panel" id="openPanel">Percorsi</button>
-<script src="map-parts/part-01.js"></script><script src="map-parts/part-02.js"></script><script src="map-parts/part-03.js"></script><script src="map-parts/part-04.js"></script><script src="map-parts/part-05.js"></script><script src="map-parts/part-06.js"></script><script src="map-parts/part-07.js"></script>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
 var ROUTES={
@@ -43,7 +45,11 @@ var POINTS=[];Object.keys(ROUTES).forEach(function(r){ROUTES[r].p.forEach(functi
 var IMAGE_W=2048,IMAGE_H=1590,KEY="wildlands-treasure-progress-v2";
 var map=L.map("map",{crs:L.CRS.Simple,minZoom:-2,maxZoom:3,zoomSnap:.25,zoomDelta:.5,wheelPxPerZoomLevel:85,attributionControl:false});
 var imageBounds=[[-IMAGE_H,0],[0,IMAGE_W]];
-L.imageOverlay("data:image/webp;base64,"+window.__MAP_B64,imageBounds).addTo(map);
+var baseOverlay=L.imageOverlay("assets/Mappa4K.png",imageBounds,{interactive:false}).addTo(map);
+  var testImg=new Image();
+  testImg.onerror=function(){document.getElementById("mapMissing").style.display="block"};
+  testImg.onload=function(){document.getElementById("mapMissing").style.display="none"};
+  testImg.src="assets/Mappa4K.png";
 map.setMaxBounds([[-IMAGE_H-260,-260],[260,IMAGE_W+260]]);
 L.control.attribution({position:"bottomright",prefix:"Leaflet"}).addTo(map);
 var active="blu",found=loadFound(),markerLayers={},markerIndex=new Map();
