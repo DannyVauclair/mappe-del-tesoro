@@ -34,7 +34,7 @@ jobs:
           rm -rf tiles
           mkdir -p assets tiles /tmp/rdr-map
 
-          curl -L --fail --retry 3 --retry-delay 2 \
+          curl --http1.1 -L --fail --retry 6 --retry-delay 3 --retry-all-errors \
             "https://media.githubusercontent.com/media/asd007/RDOCollectorMapOverlay/main/data/rdr2_map_hq.png" \
             -o /tmp/rdr-map/source.png
 
