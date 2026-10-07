@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
   pages: write
   id-token: write
 
@@ -27,63 +27,91 @@ jobs:
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
-      - name: Build clean base map
+      - name: Build multiresolution map tiles
         shell: bash
         run: |
           set -euo pipefail
-          mkdir -p assets /tmp/rdr-map
+          rm -rf tiles
+          mkdir -p assets tiles /tmp/rdr-map
+
           curl -L --fail --retry 3 --retry-delay 2 \
             "https://media.githubusercontent.com/media/asd007/RDOCollectorMapOverlay/main/data/rdr2_map_hq.png" \
             -o /tmp/rdr-map/source.png
+
           python -m pip install --quiet pillow
+
           python <<'PY'
           from pathlib import Path
-          from PIL import Image, ImageFilter, ImageEnhance
+          from math import ceil
+          from PIL import Image, ImageFilter, ImageEnhance, ImageStat
 
           Image.MAX_IMAGE_PIXELS = None
+
           source = Path("/tmp/rdr-map/source.png")
-          print("Downloaded source:", source.stat().st_size)
+          src = Image.open(source).convert("RGB")
+          print("Source dimensions:", src.size)
 
-          img = Image.open(source).convert("RGB")
-          print("Source dimensions:", img.size)
-          img = img.resize((2048, 1590), Image.Resampling.LANCZOS)
+          BASE_W, BASE_H = 2048, 1590
+          MAX_NATIVE_ZOOM = 3
+          SCALE = 2 ** MAX_NATIVE_ZOOM
+          MAX_W, MAX_H = BASE_W * SCALE, BASE_H * SCALE
 
-          # Rebuild decorative corner areas from clean parchment while leaving
-          # the actual world map untouched, so treasure coordinates stay aligned.
-          parchment = img.crop((40, 330, 600, 900)).filter(ImageFilter.GaussianBlur(1.2))
+          master = src.resize((MAX_W, MAX_H), Image.Resampling.LANCZOS)
+
+          def sbox(box):
+              return tuple(round(v * SCALE) for v in box)
+
+          parchment = master.crop(sbox((40, 330, 600, 900))).filter(ImageFilter.GaussianBlur(4.0))
 
           def parchment_fill(box):
-              x0, y0, x1, y1 = box
+              x0, y0, x1, y1 = sbox(box)
               w, h = x1 - x0, y1 - y0
               patch = parchment.resize((w, h), Image.Resampling.LANCZOS)
-              ring = img.crop((max(0, x0-18), max(0, y0-18),
-                               min(img.width, x1+18), min(img.height, y1+18)))
-              target = sum(ring.convert("L").getdata()) / max(1, ring.width*ring.height)
-              current = sum(patch.convert("L").getdata()) / max(1, patch.width*patch.height)
+              ring = master.crop((
+                  max(0, x0 - 96), max(0, y0 - 96),
+                  min(master.width, x1 + 96), min(master.height, y1 + 96)
+              ))
+              target = ImageStat.Stat(ring.convert("L")).mean[0]
+              current = ImageStat.Stat(patch.convert("L")).mean[0]
               if current:
-                  patch = ImageEnhance.Brightness(patch).enhance(target/current)
-              img.paste(patch, (x0, y0))
+                  patch = ImageEnhance.Brightness(patch).enhance(target / current)
+              master.paste(patch, (x0, y0))
 
           parchment_fill((0, 0, 650, 320))
           parchment_fill((1020, 1330, 1995, 1535))
           parchment_fill((1980, 1520, 2048, 1590))
 
-          out = Path("assets/Mappa4K.webp")
-          img.save(out, "WEBP", quality=88, method=6)
-          print("Generated:", out, out.stat().st_size)
-          PY
+          preview = master.resize((BASE_W, BASE_H), Image.Resampling.LANCZOS)
+          preview.save("assets/Mappa4K.webp", "WEBP", quality=88, method=4)
 
-      - name: Save generated map in repository
-        shell: bash
-        run: |
-          set -euo pipefail
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -f assets/Mappa4K.webp
-          if ! git diff --cached --quiet; then
-            git commit -m "Add clean generated map asset [skip ci]"
-            git push origin HEAD:main
-          fi
+          TILE = 256
+          total_tiles = 0
+          total_bytes = 0
+
+          for z in range(MAX_NATIVE_ZOOM + 1):
+              factor = 2 ** z
+              w, h = BASE_W * factor, BASE_H * factor
+              level = master if z == MAX_NATIVE_ZOOM else master.resize((w, h), Image.Resampling.LANCZOS)
+              cols, rows = ceil(w / TILE), ceil(h / TILE)
+              print(f"z={z}: {w}x{h}, {cols}x{rows} tiles")
+
+              for x in range(cols):
+                  outdir = Path("tiles") / str(z) / str(x)
+                  outdir.mkdir(parents=True, exist_ok=True)
+                  for y in range(rows):
+                      left, top = x * TILE, y * TILE
+                      right, bottom = min(left + TILE, w), min(top + TILE, h)
+                      crop = level.crop((left, top, right, bottom))
+                      tile = Image.new("RGB", (TILE, TILE), (206, 183, 141))
+                      tile.paste(crop, (0, 0))
+                      out = outdir / f"{y}.webp"
+                      tile.save(out, "WEBP", quality=84, method=4)
+                      total_tiles += 1
+                      total_bytes += out.stat().st_size
+
+          print("Generated tiles:", total_tiles)
+          print("Tile payload MB:", round(total_bytes / 1024 / 1024, 1))
+          PY
 
       - name: Upload site
         uses: actions/upload-pages-artifact@v3
