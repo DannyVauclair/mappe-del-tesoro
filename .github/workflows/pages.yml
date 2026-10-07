@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -72,6 +72,18 @@ jobs:
           img.save(out, "WEBP", quality=88, method=6)
           print("Generated:", out, out.stat().st_size)
           PY
+
+      - name: Save generated map in repository
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f assets/Mappa4K.webp
+          if ! git diff --cached --quiet; then
+            git commit -m "Add clean generated map asset [skip ci]"
+            git push origin HEAD:main
+          fi
 
       - name: Upload site
         uses: actions/upload-pages-artifact@v3
