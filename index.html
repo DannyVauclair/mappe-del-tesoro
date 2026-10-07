@@ -35,18 +35,6 @@
 </aside>
 <button class="open-panel" id="openPanel">Percorsi</button>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script>window.__MAP_B64="";</script>
-<script src="map-data/part-01.js"></script>
-<script src="map-data/part-02.js"></script>
-<script src="map-data/part-03.js"></script>
-<script src="map-data/part-04.js"></script>
-<script src="map-data/part-05.js"></script>
-<script src="map-data/part-06.js"></script>
-<script src="map-data/part-07.js"></script>
-<script src="map-data/part-08.js"></script>
-<script src="map-data/part-09.js"></script>
-<script src="map-data/part-10.js"></script>
-<script src="map-data/part-11.js"></script>
 <script>
 var ROUTES={
  blu:{label:"Percorso Blu",color:"#2f76d2",p:[[1,1157,717],[2,1138.2,731.8],[3,1151,994.2],[4,1029.6,1038.6],[5,1025.7,945.9],[6,1116.6,639],[7,1062.2,1016.9],[8,1293.2,752.5],[9,1386.9,715],[10,1343.5,656.8],[11,1477.7,646.9],[12,1497.5,512.8],[13,1487.7,475.3],[14,1593.3,250.3],[15,1738.3,487.1],[16,1712.6,622.3],[17,1761.9,649.9],[18,1795.4,725.9],[19,1712.5,685.5],[20,1658.3,708.1],[21,1527,791],[22,1606.8,1020.9],[23,1435.2,813.7],[24,953.7,821.5],[25,1149.1,802.8],[26,1425.5,583.8],[28,1035.6,632.1],[29,1610.9,790],[30,1626.9,344.1],[31,1565.7,389.4],[32,1337.7,348.9],[33,895.4,1035.7],[34,1712.6,448.7]]},
@@ -57,13 +45,12 @@ var POINTS=[];Object.keys(ROUTES).forEach(function(r){ROUTES[r].p.forEach(functi
 var IMAGE_W=2048,IMAGE_H=1590,KEY="wildlands-treasure-progress-v2";
 var map=L.map("map",{crs:L.CRS.Simple,minZoom:-2,maxZoom:3,zoomSnap:.25,zoomDelta:.5,wheelPxPerZoomLevel:85,attributionControl:false});
 var imageBounds=[[-IMAGE_H,0],[0,IMAGE_W]];
-var MAP_SRC="data:image/webp;base64,"+window.__MAP_B64;
+var MAP_SRC="assets/Mappa4K.webp?v=4";
 var baseOverlay=L.imageOverlay(MAP_SRC,imageBounds,{interactive:false}).addTo(map);
 var testImg=new Image();
 testImg.onerror=function(){document.getElementById("mapMissing").style.display="block"};
 testImg.onload=function(){document.getElementById("mapMissing").style.display="none"};
 testImg.src=MAP_SRC;
-baseOverlay.on("load",function(){window.__MAP_B64="";});
 map.setMaxBounds([[-IMAGE_H-260,-260],[260,IMAGE_W+260]]);
 L.control.attribution({position:"bottomright",prefix:"Leaflet"}).addTo(map);
 var active="blu",found=loadFound(),markerLayers={},markerIndex=new Map();
