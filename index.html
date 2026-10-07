@@ -475,8 +475,8 @@ document.getElementById("closePanel").onclick=function(){panel.classList.add("cl
 open.onclick=function(){panel.classList.remove("closed");open.classList.remove("show")};
 
 (async function init(){
-  updateModeUI();
   await loadGlobalPoints();
+  updateModeUI();
   fitActive();
   if(adminKey)await verifyAdminKey(adminKey,true);
   if(mode==="group"&&groupCode&&playerName){
