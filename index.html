@@ -15,8 +15,8 @@
 .section{padding:14px 0;border-bottom:1px solid var(--line)}.section-title{font:800 9.5px/1 system-ui,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#99764b;margin-bottom:9px}.tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:5px}.tab{height:36px;border:1px solid #d7bd912a;border-radius:4px;background:#fff0;color:#d8c5a4;cursor:pointer;font:700 11px/1 system-ui,sans-serif}.tab:hover{background:#ffffff0b}.tab.active{background:#ead9b813;border-color:#d7bd9160;color:#f0dfc2}.tab[data-route=blu].active{box-shadow:inset 0 -2px var(--blue)}.tab[data-route=gialla].active{box-shadow:inset 0 -2px var(--yellow)}.tab[data-route=rossa].active{box-shadow:inset 0 -2px var(--red)}
 .stats{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:end}.stats-main span{display:block;font-size:12px;color:var(--muted);margin-bottom:3px}.stats-main strong{font-size:18px}.stats-side{font:800 11px/1 system-ui,sans-serif;color:#d9c4a3}.progress{height:5px;background:#0006;border-radius:99px;overflow:hidden;margin-top:9px}.progress>span{display:block;height:100%;width:0;background:#b88a50;transition:.2s}.controls{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:10px}.btn{height:37px;border:1px solid #d7bd912a;border-radius:4px;background:#ffffff08;color:#ead9b8;cursor:pointer;font:700 11px/1 system-ui,sans-serif}.btn:hover{background:#ffffff10}.btn.primary{border-color:#c6a46a60;background:#b88a501b}.toggle{display:flex;align-items:center;justify-content:space-between;margin-top:11px;font-size:12px;color:#c9b492}.toggle input{accent-color:#b88a50;width:17px;height:17px}
 .route-list{display:grid;gap:7px}.route-row{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:9px;height:38px;padding:0 10px;border:1px solid #d7bd9122;border-radius:4px;background:#ffffff05}.dot{width:10px;height:10px;border-radius:50%;box-shadow:0 0 0 2px #fff1}.route-row b{font-size:12px}.route-row span:last-child{font:800 10px/1 system-ui,sans-serif;color:#bba687}.note{font-size:10.5px;line-height:1.45;color:#98856a;margin-top:12px}.reset{width:100%;height:32px;margin-top:10px;border:0;background:transparent;color:#9f8d74;cursor:pointer;font-size:10.5px;text-decoration:underline;text-underline-offset:3px}.panel.closed{display:none}.open-panel{display:none;position:absolute;z-index:1000;left:18px;top:18px;border:1px solid #d7bd9150;border-radius:4px;background:#211910;color:#ead9b8;padding:10px 13px;cursor:pointer;font:800 10px/1 system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;box-shadow:0 8px 24px #0005}.open-panel.show{display:block}
-.treasure-icon{background:transparent!important;border:0!important}.pin{--pin:#2f76d2;width:28px;height:28px;position:relative;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:var(--pin);border:1px solid #18120ddd;box-shadow:0 2px 5px #0008,inset 0 0 0 1px #ffffff24;transition:opacity .15s,filter .15s}.pin span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;transform:rotate(45deg);font:800 10px/1 Arial,sans-serif;color:#fff;text-shadow:0 1px 1px #0008}.pin.found{opacity:.34;filter:grayscale(.4)}.pin.found:after{content:"✓";position:absolute;right:-6px;top:-7px;width:14px;height:14px;border-radius:50%;transform:rotate(45deg);background:#211910;border:1px solid #b49461;color:#f1dec0;font:800 9px/13px Arial;text-align:center}.pulse .pin{animation:pulse .8s ease-in-out 2}@keyframes pulse{50%{filter:brightness(1.5);transform:rotate(-45deg) scale(1.18)}}
-.leaflet-popup-content-wrapper,.leaflet-popup-tip{background:#241a11;color:#ead9b8;border:1px solid #6c5135;box-shadow:0 10px 28px #0007}.leaflet-popup-content{margin:13px 14px;min-width:190px}.pop-k{font:800 9px/1 system-ui,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#aa8b61}.pop-t{font-weight:700;font-size:19px;margin:5px 0 3px}.pop-s{font-size:11.5px;color:#baa483;margin-bottom:10px}.pop-btn{width:100%;height:34px;border:1px solid #725737;border-radius:3px;background:#322418;color:#ead9b8;cursor:pointer;font:800 10px/1 system-ui,sans-serif;text-transform:uppercase;letter-spacing:.06em}
+.treasure-icon{background:transparent!important;border:0!important}.pin{--pin:#2f76d2;width:28px;height:28px;position:relative;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:var(--pin);border:1px solid #18120ddd;box-shadow:0 2px 5px #0008,inset 0 0 0 1px #ffffff24;transition:opacity .15s,filter .15s}.pin span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;transform:rotate(45deg);font:800 10px/1 Arial,sans-serif;color:#fff;text-shadow:0 1px 1px #0008}.pin.empty{opacity:.34;filter:grayscale(.75)}.pin.empty:after{content:"×";position:absolute;right:-7px;top:-8px;width:16px;height:16px;border-radius:50%;transform:rotate(45deg);background:#211910;border:1px solid #9f8d74;color:#e9dcc6;font:900 12px/14px Arial;text-align:center}.pin.spawned{filter:brightness(1.22);box-shadow:0 0 0 2px #f0d482aa,0 0 16px #f0c75d99,inset 0 0 0 1px #fff7}.pin.spawned:after{content:"★";position:absolute;right:-8px;top:-9px;width:17px;height:17px;border-radius:50%;transform:rotate(45deg);background:#7a5a1d;border:1px solid #f0d482;color:#fff2b7;font:900 9px/16px Arial;text-align:center}.pulse .pin{animation:pulse .8s ease-in-out 2}@keyframes pulse{50%{filter:brightness(1.5);transform:rotate(-45deg) scale(1.18)}}
+.leaflet-popup-content-wrapper,.leaflet-popup-tip{background:#241a11;color:#ead9b8;border:1px solid #6c5135;box-shadow:0 10px 28px #0007}.leaflet-popup-content{margin:13px 14px;min-width:225px}.pop-k{font:800 9px/1 system-ui,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#aa8b61}.pop-t{font-weight:700;font-size:19px;margin:5px 0 3px}.pop-s{font-size:11.5px;color:#baa483;margin-bottom:10px;line-height:1.4}.pop-meta{font:700 9.5px/1.35 system-ui,sans-serif;color:#8f7a60;margin:-3px 0 10px}.pop-actions{display:grid;grid-template-columns:1fr 1fr;gap:6px}.pop-btn{min-height:34px;padding:7px 8px;border:1px solid #725737;border-radius:3px;background:#322418;color:#ead9b8;cursor:pointer;font:800 9px/1.15 system-ui,sans-serif;text-transform:uppercase;letter-spacing:.04em}.pop-btn.empty-action{border-color:#806f5a}.pop-btn.spawn-action{border-color:#b99347;background:#5c4319}.pop-btn.reset-action{grid-column:1/-1;background:#241a11;color:#a99578}.sync-box{display:grid;gap:8px}.sync-mode{display:grid;grid-template-columns:1fr 1fr;gap:5px}.sync-field{display:grid;gap:4px}.sync-field label{font:800 9px/1 system-ui,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#907653}.sync-field input{height:34px;width:100%;border:1px solid #d7bd912a;border-radius:4px;background:#120e0bc0;color:#ead9b8;padding:0 10px;outline:none;font:600 12px/1 system-ui,sans-serif}.sync-field input:focus{border-color:#b88a5077}.sync-status{display:flex;align-items:center;gap:7px;min-height:18px;font:700 10px/1.3 system-ui,sans-serif;color:#a99578}.sync-dot{width:8px;height:8px;border-radius:50%;background:#756451;box-shadow:0 0 0 2px #fff1}.sync-dot.online{background:#6f9f68}.sync-dot.syncing{background:#c19a50}.sync-dot.error{background:#b65a50}.sync-help{font-size:10px;line-height:1.4;color:#8f7a60}.sync-actions{display:grid;grid-template-columns:1fr auto;gap:6px}.sync-actions .btn{padding:0 10px}.status-legend{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;margin-top:10px}.status-pill{border:1px solid #d7bd9120;border-radius:3px;padding:6px 4px;text-align:center;font:800 9px/1.2 system-ui,sans-serif;color:#a99578}.status-pill b{display:block;font-size:13px;color:#ead9b8;margin-bottom:3px}
 @media(max-width:700px){.panel{left:10px;top:10px;width:min(342px,calc(100vw - 20px));max-height:calc(100vh - 20px)}.open-panel{left:10px;top:10px}}
 </style>
 </head>
@@ -26,15 +26,33 @@
   Impossibile caricare la mappa base. Ricarica la pagina.
 </div>
 <aside class="panel" id="panel">
-<div class="head"><div><div class="kicker">RedM · Wildlands</div><h1>Mappe del Tesoro</h1><p class="intro">Tre percorsi, numerati nell'ordine da seguire. Seleziona un colore e segna i punti già completati.</p></div><button class="close" id="closePanel" aria-label="Chiudi pannello">×</button></div>
+<div class="head"><div><div class="kicker">RedM · Wildlands</div><h1>Mappe del Tesoro</h1><p class="intro">Tre percorsi da controllare insieme. Segna subito se un punto è vuoto o se il tesoro è spawnato.</p></div><button class="close" id="closePanel" aria-label="Chiudi pannello">×</button></div>
+<div class="section">
+  <div class="section-title">Sessione</div>
+  <div class="sync-box">
+    <div class="sync-mode">
+      <button class="tab active" id="personalMode">Personale</button>
+      <button class="tab" id="groupMode">Gruppo</button>
+    </div>
+    <div id="groupFields" style="display:none">
+      <div class="sync-field" style="margin-top:8px"><label for="groupCode">Codice gruppo</label><input id="groupCode" maxlength="40" autocomplete="off" placeholder="es. VAUCLAIR-26"></div>
+      <div class="sync-field" style="margin-top:7px"><label for="playerName">Il tuo nome</label><input id="playerName" maxlength="40" autocomplete="off" placeholder="es. Daniel"></div>
+      <div class="sync-actions" style="margin-top:8px"><button class="btn primary" id="joinGroup">Entra / sincronizza</button><button class="btn" id="leaveGroup">Esci</button></div>
+      <div class="sync-status" style="margin-top:8px"><i class="sync-dot" id="syncDot"></i><span id="syncStatus">Inserisci un codice gruppo.</span></div>
+      <div class="sync-help">Chi usa lo stesso codice vede gli stessi stati. Condividi il codice solo con il tuo gruppo.</div>
+    </div>
+  </div>
+</div>
 <div class="section"><div class="section-title">Visualizza percorso</div><div class="tabs"><button class="tab" data-route="tutte">Tutte</button><button class="tab active" data-route="blu">Blu</button><button class="tab" data-route="gialla">Giallo</button><button class="tab" data-route="rossa">Rosso</button></div></div>
-<div class="section"><div class="stats"><div class="stats-main"><span id="activeLabel">Percorso Blu</span><strong id="activeCount">0 / 33</strong></div><div class="stats-side" id="percent">0%</div></div><div class="progress"><span id="bar"></span></div><div class="controls"><button class="btn primary" id="nextBtn">Prossimo punto</button><button class="btn" id="fitBtn">Centra percorso</button></div><label class="toggle"><span>Nascondi i punti trovati</span><input type="checkbox" id="hideFound"></label></div>
-<div class="section"><div class="section-title">Avanzamento</div><div class="route-list"><div class="route-row"><i class="dot" style="background:var(--blue)"></i><b>Percorso Blu</b><span id="mini-blu">0 / 33</span></div><div class="route-row"><i class="dot" style="background:var(--yellow)"></i><b>Percorso Giallo</b><span id="mini-gialla">0 / 27</span></div><div class="route-row"><i class="dot" style="background:var(--red)"></i><b>Percorso Rosso</b><span id="mini-rossa">0 / 24</span></div></div></div>
-<div class="note">Le posizioni sono state riallineate sulla nuova mappa base a partire dalle tre reference. Nelle reference originali il Percorso Blu salta il n. 27 e il Percorso Rosso salta il n. 5: sono mantenuti così.</div>
-<button class="reset" id="resetBtn">Azzera tutti i progressi</button>
+<div class="section"><div class="stats"><div class="stats-main"><span id="activeLabel">Percorso Blu</span><strong id="activeCount">33 da controllare</strong></div><div class="stats-side" id="percent">0% controllati</div></div><div class="progress"><span id="bar"></span></div><div class="status-legend"><div class="status-pill"><b id="legendUnchecked">33</b>Da controllare</div><div class="status-pill"><b id="legendEmpty">0</b>Vuoti</div><div class="status-pill"><b id="legendSpawned">0</b>Spawnati</div></div><div class="controls"><button class="btn primary" id="nextBtn">Prossimo da controllare</button><button class="btn" id="fitBtn">Centra percorso</button></div><label class="toggle"><span>Nascondi i punti vuoti</span><input type="checkbox" id="hideEmpty"></label></div>
+<div class="section"><div class="section-title">Stato percorsi</div><div class="route-list"><div class="route-row"><i class="dot" style="background:var(--blue)"></i><b>Percorso Blu</b><span id="mini-blu">? 33 · × 0 · ★ 0</span></div><div class="route-row"><i class="dot" style="background:var(--yellow)"></i><b>Percorso Giallo</b><span id="mini-gialla">? 27 · × 0 · ★ 0</span></div><div class="route-row"><i class="dot" style="background:var(--red)"></i><b>Percorso Rosso</b><span id="mini-rossa">? 24 · × 0 · ★ 0</span></div></div></div>
+<div class="note">Stati: normale = da controllare, × = controllato senza tesoro, ★ = tesoro spawnato. In modalità Gruppo gli stati sono condivisi tra tutti quelli che usano lo stesso codice.</div>
+<button class="reset" id="resetBtn">Azzera la sessione personale</button>
 </aside>
 <button class="open-panel" id="openPanel">Percorsi</button>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="sync-config.js"></script>
 <script>
 var ROUTES={
  blu:{label:"Percorso Blu",color:"#2f76d2",p:[[1,1157,717],[2,1138.2,731.8],[3,1151,994.2],[4,1029.6,1038.6],[5,1025.7,945.9],[6,1116.6,639],[7,1062.2,1016.9],[8,1293.2,752.5],[9,1386.9,715],[10,1343.5,656.8],[11,1477.7,646.9],[12,1497.5,512.8],[13,1487.7,475.3],[14,1593.3,250.3],[15,1738.3,487.1],[16,1712.6,622.3],[17,1761.9,649.9],[18,1795.4,725.9],[19,1712.5,685.5],[20,1658.3,708.1],[21,1527,791],[22,1606.8,1020.9],[23,1435.2,813.7],[24,953.7,821.5],[25,1149.1,802.8],[26,1425.5,583.8],[28,1035.6,632.1],[29,1610.9,790],[30,1626.9,344.1],[31,1565.7,389.4],[32,1337.7,348.9],[33,895.4,1035.7],[34,1712.6,448.7]]},
@@ -42,7 +60,8 @@ var ROUTES={
  rossa:{label:"Percorso Rosso",color:"#c83232",p:[[1,1147.1,989.2],[2,1022.7,1041.5],[3,898.4,995.2],[4,1020.8,947.8],[6,1158,806.7],[7,1220.2,634.1],[8,1354.4,675.5],[9,1392.9,717],[10,1402.8,588.7],[11,1478.8,530.5],[12,1491.6,474.3],[13,1571.6,391.4],[14,1428.5,390.4],[15,1228.1,675.5],[16,1438.2,833.4],[17,1315.9,663.7],[18,1320.8,744.6],[19,1528,789],[20,1229.1,408.1],[21,1582.5,259.2],[22,1515.3,449.6],[23,1684,477.2],[24,1834.9,659.8],[25,1715.5,744.6]]}
 };
 var POINTS=[];Object.keys(ROUTES).forEach(function(r){ROUTES[r].p.forEach(function(v){POINTS.push({route:r,routeLabel:ROUTES[r].label,number:v[0],x:v[1],y:v[2],color:ROUTES[r].color})})});
-var IMAGE_W=2048,IMAGE_H=1590,KEY="wildlands-treasure-progress-v2";
+var IMAGE_W=2048,IMAGE_H=1590;
+var LOCAL_KEY="wildlands-treasure-state-v3",MODE_KEY="wildlands-treasure-mode-v3",GROUP_KEY="wildlands-treasure-group-v3",NAME_KEY="wildlands-treasure-name-v3";
 var map=L.map("map",{crs:L.CRS.Simple,minZoom:-2,maxZoom:3,zoomSnap:.25,zoomDelta:.5,wheelPxPerZoomLevel:85,attributionControl:false,zoomControl:false});
 L.control.zoom({position:"topright"}).addTo(map);
 var imageBounds=[[-IMAGE_H,0],[0,IMAGE_W]];
@@ -54,25 +73,191 @@ testImg.onload=function(){document.getElementById("mapMissing").style.display="n
 testImg.src=MAP_SRC;
 map.setMaxBounds([[-IMAGE_H-260,-260],[260,IMAGE_W+260]]);
 L.control.attribution({position:"bottomright",prefix:"Leaflet"}).addTo(map);
-var active="blu",found=loadFound(),markerLayers={},markerIndex=new Map();
-function loadFound(){try{return new Set(JSON.parse(localStorage.getItem(KEY)||"[]"))}catch(e){return new Set()}}
-function saveFound(){localStorage.setItem(KEY,JSON.stringify(Array.from(found)));refreshAll()}
-function k(p){return p.route+"-"+p.number}function ll(p){return L.latLng(-p.y,p.x)}
-function icon(p){var done=found.has(k(p));return L.divIcon({className:"treasure-icon",html:'<div class="pin '+(done?"found":"")+'" style="--pin:'+p.color+'"><span>'+p.number+"</span></div>",iconSize:[28,35],iconAnchor:[14,34],popupAnchor:[0,-30]})}
-function popup(p){var done=found.has(k(p));return '<div class="pop-k">'+p.routeLabel+'</div><div class="pop-t">Punto '+p.number+'</div><div class="pop-s">'+(done?"Questo punto è segnato come trovato.":"Raggiungi questo punto seguendo la numerazione del percorso.")+'</div><button class="pop-btn" data-key="'+k(p)+'">'+(done?"Segna come non trovato":"Segna come trovato")+"</button>"}
+
+var active="blu",mode=localStorage.getItem(MODE_KEY)==="group"?"group":"personal";
+var states=loadLocalStates(),markerLayers={},markerIndex=new Map(),supabaseClient=null,syncTimer=null,realtimeChannel=null,groupCode=localStorage.getItem(GROUP_KEY)||"",playerName=localStorage.getItem(NAME_KEY)||"";
+
+function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(m){return({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"})[m]})}
+function loadLocalStates(){try{return JSON.parse(localStorage.getItem(LOCAL_KEY)||"{}")||{}}catch(e){return {}}}
+function saveLocalStates(){localStorage.setItem(LOCAL_KEY,JSON.stringify(states))}
+function k(p){return p.route+"-"+p.number}
+function ll(p){return L.latLng(-p.y,p.x)}
+function stateFor(p){return states[k(p)]||null}
+function statusFor(p){var s=stateFor(p);return s&&s.status?s.status:"unchecked"}
+function formatTime(v){if(!v)return"";try{return new Date(v).toLocaleTimeString("it-IT",{hour:"2-digit",minute:"2-digit"})}catch(e){return""}}
+function configured(){var x=window.WILDLANDS_SYNC||{};return !!(x.url&&x.anonKey&&window.supabase)}
+function setSyncStatus(kind,text){var d=document.getElementById("syncDot"),s=document.getElementById("syncStatus");d.className="sync-dot"+(kind?" "+kind:"");s.textContent=text}
+function icon(p){var st=statusFor(p),cls=st==="empty"?" empty":st==="spawned"?" spawned":"";return L.divIcon({className:"treasure-icon",html:'<div class="pin'+cls+'" style="--pin:'+p.color+'"><span>'+p.number+"</span></div>",iconSize:[28,35],iconAnchor:[14,34],popupAnchor:[0,-30]})}
+function popup(p){
+  var s=stateFor(p),st=statusFor(p),desc="Da controllare.";
+  if(st==="empty")desc="Controllato: nessun tesoro spawnato.";
+  if(st==="spawned")desc="Tesoro spawnato: questo punto è attivo.";
+  var meta=s&&s.updated_by?'<div class="pop-meta">Aggiornato da '+esc(s.updated_by)+(s.updated_at?" · "+esc(formatTime(s.updated_at)):"")+'</div>':"";
+  return '<div class="pop-k">'+p.routeLabel+'</div><div class="pop-t">Punto '+p.number+'</div><div class="pop-s">'+desc+'</div>'+meta+
+    '<div class="pop-actions"><button class="pop-btn empty-action" data-state="empty" data-key="'+k(p)+'">× Nessun tesoro</button><button class="pop-btn spawn-action" data-state="spawned" data-key="'+k(p)+'">★ Tesoro spawnato</button>'+
+    (st!=="unchecked"?'<button class="pop-btn reset-action" data-state="unchecked" data-key="'+k(p)+'">Ripristina · Da controllare</button>':"")+'</div>';
+}
+
 Object.keys(ROUTES).forEach(function(r){markerLayers[r]=L.layerGroup()});
-POINTS.forEach(function(p){var m=L.marker(ll(p),{icon:icon(p),title:p.routeLabel+" — "+p.number});m.bindPopup(function(){return popup(p)});m.on("popupopen",function(){setTimeout(function(){var b=document.querySelector('.pop-btn[data-key="'+k(p)+'"]');if(b)b.onclick=function(){if(found.has(k(p)))found.delete(k(p));else found.add(k(p));saveFound();m.setPopupContent(popup(p))}},0)});markerLayers[p.route].addLayer(m);markerIndex.set(k(p),{marker:m,point:p})});
+POINTS.forEach(function(p){
+  var m=L.marker(ll(p),{icon:icon(p),title:p.routeLabel+" — "+p.number});
+  m.bindPopup(function(){return popup(p)});
+  m.on("popupopen",function(){setTimeout(function(){
+    document.querySelectorAll('.pop-btn[data-key="'+k(p)+'"]').forEach(function(b){
+      b.onclick=function(){setPointState(p,b.dataset.state)};
+    });
+  },0)});
+  markerLayers[p.route].addLayer(m);markerIndex.set(k(p),{marker:m,point:p});
+});
+
 function routePoints(r){return r==="tutte"?POINTS:POINTS.filter(function(p){return p.route===r})}
 function currentBounds(){return L.latLngBounds(routePoints(active).map(ll))}
 function fitActive(){map.fitBounds(currentBounds().pad(.08),{padding:[28,28]})}
-function applyLayers(){Object.values(markerLayers).forEach(function(l){map.removeLayer(l)});var rs=active==="tutte"?Object.keys(ROUTES):[active],hide=document.getElementById("hideFound").checked;rs.forEach(function(r){var layer=markerLayers[r];layer.clearLayers();POINTS.filter(function(p){return p.route===r}).forEach(function(p){if(!(hide&&found.has(k(p))))layer.addLayer(markerIndex.get(k(p)).marker)});layer.addTo(map)})}
-function refreshAll(){markerIndex.forEach(function(v){v.marker.setIcon(icon(v.point))});applyLayers();Object.keys(ROUTES).forEach(function(r){var pts=POINTS.filter(function(p){return p.route===r}),n=pts.filter(function(p){return found.has(k(p))}).length;document.getElementById("mini-"+r).textContent=n+" / "+pts.length});var pts=routePoints(active),n=pts.filter(function(p){return found.has(k(p))}).length,pct=pts.length?Math.round(n/pts.length*100):0;document.getElementById("activeLabel").textContent=active==="tutte"?"Tutti i percorsi":ROUTES[active].label;document.getElementById("activeCount").textContent=n+" / "+pts.length;document.getElementById("percent").textContent=pct+"%";document.getElementById("bar").style.width=pct+"%";document.getElementById("nextBtn").disabled=active==="tutte";document.getElementById("nextBtn").style.opacity=active==="tutte"?".4":"1"}
-document.querySelectorAll(".tab").forEach(function(b){b.onclick=function(){active=b.dataset.route;document.querySelectorAll(".tab").forEach(function(x){x.classList.toggle("active",x===b)});refreshAll();fitActive()}});
-document.getElementById("hideFound").onchange=applyLayers;document.getElementById("fitBtn").onclick=fitActive;
-document.getElementById("nextBtn").onclick=function(){if(active==="tutte")return;var pts=routePoints(active).slice().sort(function(a,b){return a.number-b.number}),p=pts.find(function(x){return !found.has(k(x))})||pts[0],item=markerIndex.get(k(p));map.setView(ll(p),Math.max(map.getZoom(),.85),{animate:true});item.marker.openPopup();var el=item.marker.getElement();if(el){el.classList.remove("pulse");void el.offsetWidth;el.classList.add("pulse")}};
-document.getElementById("resetBtn").onclick=function(){if(confirm("Azzerare tutti i progressi delle tre mappe del tesoro?")){found.clear();saveFound()}};
-var panel=document.getElementById("panel"),open=document.getElementById("openPanel");document.getElementById("closePanel").onclick=function(){panel.classList.add("closed");open.classList.add("show")};open.onclick=function(){panel.classList.remove("closed");open.classList.remove("show")};
-refreshAll();fitActive();
+function applyLayers(){
+  Object.values(markerLayers).forEach(function(l){map.removeLayer(l)});
+  var rs=active==="tutte"?Object.keys(ROUTES):[active],hide=document.getElementById("hideEmpty").checked;
+  rs.forEach(function(r){
+    var layer=markerLayers[r];layer.clearLayers();
+    POINTS.filter(function(p){return p.route===r}).forEach(function(p){if(!(hide&&statusFor(p)==="empty"))layer.addLayer(markerIndex.get(k(p)).marker)});
+    layer.addTo(map);
+  });
+}
+function counts(pts){
+  var out={unchecked:0,empty:0,spawned:0};
+  pts.forEach(function(p){out[statusFor(p)]++});
+  return out;
+}
+function refreshAll(){
+  markerIndex.forEach(function(v){v.marker.setIcon(icon(v.point));if(v.marker.isPopupOpen())v.marker.setPopupContent(popup(v.point))});
+  applyLayers();
+  Object.keys(ROUTES).forEach(function(r){var c=counts(routePoints(r));document.getElementById("mini-"+r).textContent="? "+c.unchecked+" · × "+c.empty+" · ★ "+c.spawned});
+  var pts=routePoints(active),c=counts(pts),checked=c.empty+c.spawned,pct=pts.length?Math.round(checked/pts.length*100):0;
+  document.getElementById("activeLabel").textContent=active==="tutte"?"Tutti i percorsi":ROUTES[active].label;
+  document.getElementById("activeCount").textContent=c.unchecked+" da controllare";
+  document.getElementById("percent").textContent=pct+"% controllati";
+  document.getElementById("bar").style.width=pct+"%";
+  document.getElementById("legendUnchecked").textContent=c.unchecked;
+  document.getElementById("legendEmpty").textContent=c.empty;
+  document.getElementById("legendSpawned").textContent=c.spawned;
+  document.getElementById("nextBtn").disabled=active==="tutte";
+  document.getElementById("nextBtn").style.opacity=active==="tutte"?".4":"1";
+  document.getElementById("resetBtn").textContent=mode==="group"?"Inizia un nuovo giro per tutti":"Azzera la sessione personale";
+}
+
+async function setPointState(p,status){
+  var key=k(p),previous=states[key];
+  if(status==="unchecked")delete states[key];
+  else states[key]={status:status,updated_by:playerName||"Tu",updated_at:new Date().toISOString()};
+  refreshAll();
+  markerIndex.get(key).marker.setPopupContent(popup(p));
+  if(mode==="personal"){saveLocalStates();return}
+  if(!configured()||!supabaseClient){states[key]=previous;refreshAll();setSyncStatus("error","Backend gruppo non configurato.");return}
+  try{
+    setSyncStatus("syncing","Sincronizzazione…");
+    var res=await supabaseClient.rpc("set_treasure_point_state",{p_group_code:groupCode,p_route:p.route,p_point:p.number,p_status:status,p_updated_by:playerName||"Anonimo"});
+    if(res.error)throw res.error;
+    if(realtimeChannel)await realtimeChannel.send({type:"broadcast",event:"point-change",payload:{key:key}});
+    await syncGroup(false);
+  }catch(e){
+    if(previous)states[key]=previous;else delete states[key];
+    refreshAll();setSyncStatus("error","Errore di sincronizzazione. Riprova.");
+    console.error(e);
+  }
+}
+
+function setupSupabase(){
+  if(!configured())return false;
+  if(!supabaseClient){var cfg=window.WILDLANDS_SYNC;supabaseClient=window.supabase.createClient(cfg.url,cfg.anonKey,{auth:{persistSession:false,autoRefreshToken:false}})}
+  return true;
+}
+async function channelName(code){
+  try{var bytes=new TextEncoder().encode(code.trim().toLowerCase()),hash=await crypto.subtle.digest("SHA-256",bytes),arr=Array.from(new Uint8Array(hash));return"treasure-"+arr.map(function(b){return b.toString(16).padStart(2,"0")}).join("").slice(0,28)}
+  catch(e){return"treasure-"+code.trim().toLowerCase().replace(/[^a-z0-9_-]/g,"").slice(0,28)}
+}
+async function startRealtime(){
+  if(realtimeChannel&&supabaseClient){await supabaseClient.removeChannel(realtimeChannel);realtimeChannel=null}
+  if(!supabaseClient||!groupCode)return;
+  var name=await channelName(groupCode);
+  realtimeChannel=supabaseClient.channel(name).on("broadcast",{event:"point-change"},function(){syncGroup(false)}).on("broadcast",{event:"reset"},function(){syncGroup(false)}).subscribe();
+}
+async function syncGroup(showWorking){
+  if(mode!=="group"||!groupCode)return;
+  if(!setupSupabase()){setSyncStatus("error","Collegamento gruppo non ancora configurato.");return}
+  if(showWorking!==false)setSyncStatus("syncing","Sincronizzazione…");
+  try{
+    var res=await supabaseClient.rpc("get_treasure_group_state",{p_group_code:groupCode});
+    if(res.error)throw res.error;
+    states={};
+    (res.data||[]).forEach(function(row){states[row.route+"-"+row.point]={status:row.status,updated_by:row.updated_by,updated_at:row.updated_at}});
+    refreshAll();setSyncStatus("online","Gruppo sincronizzato · aggiornamento live");
+  }catch(e){setSyncStatus("error","Impossibile sincronizzare il gruppo.");console.error(e)}
+}
+async function enterGroup(){
+  var code=document.getElementById("groupCode").value.trim(),name=document.getElementById("playerName").value.trim();
+  if(code.length<6){setSyncStatus("error","Usa un codice gruppo di almeno 6 caratteri.");return}
+  if(!name){setSyncStatus("error","Inserisci il tuo nome.");return}
+  groupCode=code;playerName=name;mode="group";
+  localStorage.setItem(MODE_KEY,"group");localStorage.setItem(GROUP_KEY,groupCode);localStorage.setItem(NAME_KEY,playerName);
+  updateModeUI();
+  if(!setupSupabase()){setSyncStatus("error","Il backend condiviso deve ancora essere collegato.");return}
+  await syncGroup(true);await startRealtime();
+  if(syncTimer)clearInterval(syncTimer);syncTimer=setInterval(function(){syncGroup(false)},3000);
+}
+async function leaveGroup(){
+  if(syncTimer){clearInterval(syncTimer);syncTimer=null}
+  if(realtimeChannel&&supabaseClient){await supabaseClient.removeChannel(realtimeChannel);realtimeChannel=null}
+  mode="personal";localStorage.setItem(MODE_KEY,"personal");states=loadLocalStates();updateModeUI();refreshAll();
+}
+function updateModeUI(){
+  var isGroup=mode==="group";
+  document.getElementById("personalMode").classList.toggle("active",!isGroup);
+  document.getElementById("groupMode").classList.toggle("active",isGroup);
+  document.getElementById("groupFields").style.display=isGroup?"block":"none";
+  document.getElementById("groupCode").value=groupCode;
+  document.getElementById("playerName").value=playerName;
+  if(!isGroup)setSyncStatus("","Sessione personale · salvata su questo browser");
+  refreshAll();
+}
+
+document.querySelectorAll(".tab[data-route]").forEach(function(b){b.onclick=function(){active=b.dataset.route;document.querySelectorAll(".tab[data-route]").forEach(function(x){x.classList.toggle("active",x===b)});refreshAll();fitActive()}});
+document.getElementById("hideEmpty").onchange=applyLayers;
+document.getElementById("fitBtn").onclick=fitActive;
+document.getElementById("nextBtn").onclick=function(){
+  if(active==="tutte")return;
+  var pts=routePoints(active).slice().sort(function(a,b){return a.number-b.number}),p=pts.find(function(x){return statusFor(x)==="unchecked"});
+  if(!p){alert("Tutti i punti di questo percorso sono già stati controllati.");return}
+  var item=markerIndex.get(k(p));map.setView(ll(p),Math.max(map.getZoom(),.85),{animate:true});item.marker.openPopup();var el=item.marker.getElement();if(el){el.classList.remove("pulse");void el.offsetWidth;el.classList.add("pulse")}
+};
+document.getElementById("personalMode").onclick=function(){leaveGroup()};
+document.getElementById("groupMode").onclick=function(){mode="group";localStorage.setItem(MODE_KEY,"group");updateModeUI();setSyncStatus(configured()?"":"error",configured()?"Inserisci codice e nome, poi sincronizza.":"Il backend condiviso deve ancora essere collegato.")};
+document.getElementById("joinGroup").onclick=enterGroup;
+document.getElementById("leaveGroup").onclick=leaveGroup;
+document.getElementById("resetBtn").onclick=async function(){
+  if(mode==="personal"){
+    if(confirm("Azzerare tutti gli stati della tua sessione personale?")){states={};saveLocalStates();refreshAll()}
+    return;
+  }
+  if(!groupCode||!supabaseClient){setSyncStatus("error","Nessun gruppo sincronizzato.");return}
+  if(!confirm("Iniziare un NUOVO GIRO? Tutti i punti del gruppo torneranno 'Da controllare' per tutti."))return;
+  try{
+    setSyncStatus("syncing","Apertura nuovo giro…");
+    var res=await supabaseClient.rpc("reset_treasure_group_state",{p_group_code:groupCode});
+    if(res.error)throw res.error;
+    states={};refreshAll();
+    if(realtimeChannel)await realtimeChannel.send({type:"broadcast",event:"reset",payload:{}});
+    setSyncStatus("online","Nuovo giro iniziato · tutti i punti da controllare");
+  }catch(e){setSyncStatus("error","Errore durante il reset del gruppo.");console.error(e)}
+};
+
+var panel=document.getElementById("panel"),open=document.getElementById("openPanel");
+document.getElementById("closePanel").onclick=function(){panel.classList.add("closed");open.classList.add("show")};
+open.onclick=function(){panel.classList.remove("closed");open.classList.remove("show")};
+
+updateModeUI();fitActive();
+if(mode==="group"&&groupCode&&playerName){
+  if(configured()){enterGroup()}else setSyncStatus("error","Il backend condiviso deve ancora essere collegato.");
+}
+
 </script>
 </body>
 </html>
