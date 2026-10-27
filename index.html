@@ -13,7 +13,7 @@
 .panel{position:absolute;z-index:1000;left:18px;top:18px;width:342px;max-height:calc(100vh - 36px);overflow:auto;border:1px solid #e0c59835;border-radius:8px;background:linear-gradient(180deg,var(--panel),var(--panel2));box-shadow:0 18px 50px #0007,inset 0 0 0 1px #0007;backdrop-filter:blur(9px);padding:18px}
 .panel:before{content:"";position:absolute;inset:6px;pointer-events:none;border:1px solid #ddc08a18;border-radius:5px}.head{display:flex;gap:12px;padding-bottom:15px;border-bottom:1px solid var(--line)}.kicker{font:800 10px/1.1 system-ui,sans-serif;letter-spacing:.22em;color:#b18b59;text-transform:uppercase}h1{margin:7px 0;font-size:28px;line-height:1.02}.intro{margin:0;color:var(--muted);font-size:12.5px;line-height:1.45}.close{margin-left:auto;align-self:start;flex:0 0 36px;width:36px;height:36px;display:grid;place-items:center;border:1px solid #d7bd9138;border-radius:5px;background:#ffffff08;color:#c7ad86;font-size:24px;cursor:pointer;line-height:1}.close:hover{background:#ffffff12;color:#f0dfc2}
 .section{padding:14px 0;border-bottom:1px solid var(--line)}.section-title{font:800 9.5px/1 system-ui,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#99764b;margin-bottom:9px}.tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:5px}.tab{height:36px;border:1px solid #d7bd912a;border-radius:4px;background:#fff0;color:#d8c5a4;cursor:pointer;font:700 11px/1 system-ui,sans-serif}.tab:hover{background:#ffffff0b}.tab.active{background:#ead9b813;border-color:#d7bd9160;color:#f0dfc2}.tab[data-route=blu].active{box-shadow:inset 0 -2px var(--blue)}.tab[data-route=gialla].active{box-shadow:inset 0 -2px var(--yellow)}.tab[data-route=rossa].active{box-shadow:inset 0 -2px var(--red)}
-.stats{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:end}.stats-main span{display:block;font-size:12px;color:var(--muted);margin-bottom:3px}.stats-main strong{font-size:18px}.stats-side{font:800 11px/1 system-ui,sans-serif;color:#d9c4a3}.progress{height:5px;background:#0006;border-radius:99px;overflow:hidden;margin-top:9px}.progress>span{display:block;height:100%;width:0;background:#b88a50;transition:.2s}.controls{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:10px}.btn{height:37px;border:1px solid #d7bd912a;border-radius:4px;background:#ffffff08;color:#ead9b8;cursor:pointer;font:700 11px/1 system-ui,sans-serif}.btn:hover{background:#ffffff10}.btn.primary{border-color:#c6a46a60;background:#b88a501b}.toggle{display:flex;align-items:center;justify-content:space-between;margin-top:11px;font-size:12px;color:#c9b492}.toggle input{accent-color:#b88a50;width:17px;height:17px}
+.stats{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:end}.stats-main span{display:block;font-size:12px;color:var(--muted);margin-bottom:3px}.stats-main strong{font-size:18px}.stats-side{font:800 11px/1 system-ui,sans-serif;color:#d9c4a3}.progress{height:5px;background:#0006;border-radius:99px;overflow:hidden;margin-top:9px}.progress>span{display:block;height:100%;width:0;background:#b88a50;transition:.2s}.controls{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:10px}.route-toggle{grid-column:1/-1}.route-toggle.active{border-color:#d6b36d99;background:#b88a5030;box-shadow:inset 0 0 0 1px #f0d89b16}.route-path{pointer-events:none}.btn{height:37px;border:1px solid #d7bd912a;border-radius:4px;background:#ffffff08;color:#ead9b8;cursor:pointer;font:700 11px/1 system-ui,sans-serif}.btn:hover{background:#ffffff10}.btn.primary{border-color:#c6a46a60;background:#b88a501b}.toggle{display:flex;align-items:center;justify-content:space-between;margin-top:11px;font-size:12px;color:#c9b492}.toggle input{accent-color:#b88a50;width:17px;height:17px}
 .route-list{display:grid;gap:7px}.route-row{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:9px;height:38px;padding:0 10px;border:1px solid #d7bd9122;border-radius:4px;background:#ffffff05}.dot{width:10px;height:10px;border-radius:50%;box-shadow:0 0 0 2px #fff1}.route-row b{font-size:12px}.route-row span:last-child{font:800 10px/1 system-ui,sans-serif;color:#bba687}.note{font-size:10.5px;line-height:1.45;color:#98856a;margin-top:12px}.reset{width:100%;height:32px;margin-top:10px;border:0;background:transparent;color:#9f8d74;cursor:pointer;font-size:10.5px;text-decoration:underline;text-underline-offset:3px}.panel.closed{display:none}.open-panel{display:none;position:absolute;z-index:1000;left:18px;top:18px;border:1px solid #d7bd9150;border-radius:4px;background:#211910;color:#ead9b8;padding:10px 13px;cursor:pointer;font:800 10px/1 system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;box-shadow:0 8px 24px #0005}.open-panel.show{display:block}
 .treasure-icon{background:transparent!important;border:0!important}.pin{--pin:#2f76d2;width:28px;height:28px;position:relative;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:var(--pin);border:1px solid #18120ddd;box-shadow:0 2px 5px #0008,inset 0 0 0 1px #ffffff24;transition:opacity .15s,filter .15s}.pin span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;transform:rotate(45deg);font:800 10px/1 Arial,sans-serif;color:#fff;text-shadow:0 1px 1px #0008}.pin.empty{opacity:.34;filter:grayscale(.75)}.pin.empty:after{content:"×";position:absolute;right:-7px;top:-8px;width:16px;height:16px;border-radius:50%;transform:rotate(45deg);background:#211910;border:1px solid #9f8d74;color:#e9dcc6;font:900 12px/14px Arial;text-align:center}.pin.spawned{filter:brightness(1.22);box-shadow:0 0 0 2px #f0d482aa,0 0 16px #f0c75d99,inset 0 0 0 1px #fff7}.pin.spawned:after{content:"★";position:absolute;right:-8px;top:-9px;width:17px;height:17px;border-radius:50%;transform:rotate(45deg);background:#7a5a1d;border:1px solid #f0d482;color:#fff2b7;font:900 9px/16px Arial;text-align:center}.pulse .pin{animation:pulse .8s ease-in-out 2}@keyframes pulse{50%{filter:brightness(1.5);transform:rotate(-45deg) scale(1.18)}}
 .leaflet-popup-content-wrapper,.leaflet-popup-tip{background:#241a11;color:#ead9b8;border:1px solid #6c5135;box-shadow:0 10px 28px #0007}.leaflet-popup-content{margin:13px 14px;min-width:225px}.pop-k{font:800 9px/1 system-ui,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#aa8b61}.pop-t{font-weight:700;font-size:19px;margin:5px 0 3px}.pop-s{font-size:11.5px;color:#baa483;margin-bottom:10px;line-height:1.4}.pop-meta{font:700 9.5px/1.35 system-ui,sans-serif;color:#8f7a60;margin:-3px 0 10px}.pop-actions{display:grid;grid-template-columns:1fr 1fr;gap:6px}.pop-btn{min-height:34px;padding:7px 8px;border:1px solid #725737;border-radius:3px;background:#322418;color:#ead9b8;cursor:pointer;font:800 9px/1.15 system-ui,sans-serif;text-transform:uppercase;letter-spacing:.04em}.pop-btn.empty-action{border-color:#806f5a}.pop-btn.spawn-action{border-color:#b99347;background:#5c4319}.pop-btn.reset-action{grid-column:1/-1;background:#241a11;color:#a99578}.sync-box{display:grid;gap:8px}.sync-mode{display:grid;grid-template-columns:1fr 1fr;gap:5px}.sync-field{display:grid;gap:4px}.sync-field label{font:800 9px/1 system-ui,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#907653}.sync-field input{height:34px;width:100%;border:1px solid #d7bd912a;border-radius:4px;background:#120e0bc0;color:#ead9b8;padding:0 10px;outline:none;font:600 12px/1 system-ui,sans-serif}.sync-field input:focus{border-color:#b88a5077}.sync-status{display:flex;align-items:center;gap:7px;min-height:18px;font:700 10px/1.3 system-ui,sans-serif;color:#a99578}.sync-dot{width:8px;height:8px;border-radius:50%;background:#756451;box-shadow:0 0 0 2px #fff1}.sync-dot.online{background:#6f9f68}.sync-dot.syncing{background:#c19a50}.sync-dot.error{background:#b65a50}.sync-help{font-size:10px;line-height:1.4;color:#8f7a60}.sync-actions{display:grid;grid-template-columns:1fr auto;gap:6px}.sync-actions .btn{padding:0 10px}.status-legend{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;margin-top:10px}.status-pill{border:1px solid #d7bd9120;border-radius:3px;padding:6px 4px;text-align:center;font:800 9px/1.2 system-ui,sans-serif;color:#a99578}.status-pill b{display:block;font-size:13px;color:#ead9b8;margin-bottom:3px}
@@ -44,7 +44,7 @@
   </div>
 </div>
 <div class="section"><div class="section-title">Visualizza percorso</div><div class="tabs"><button class="tab" data-route="tutte">Tutte</button><button class="tab active" data-route="blu">Blu</button><button class="tab" data-route="gialla">Giallo</button><button class="tab" data-route="rossa">Rosso</button></div></div>
-<div class="section"><div class="stats"><div class="stats-main"><span id="activeLabel">Percorso Blu</span><strong id="activeCount">33 da controllare</strong></div><div class="stats-side" id="percent">0% controllati</div></div><div class="progress"><span id="bar"></span></div><div class="status-legend"><div class="status-pill"><b id="legendUnchecked">33</b>Da controllare</div><div class="status-pill"><b id="legendEmpty">0</b>Vuoti</div><div class="status-pill"><b id="legendSpawned">0</b>Spawnati</div></div><div class="controls"><button class="btn primary" id="nextBtn">Prossimo da controllare</button><button class="btn" id="fitBtn">Centra percorso</button></div><label class="toggle"><span>Nascondi i punti vuoti</span><input type="checkbox" id="hideEmpty"></label></div>
+<div class="section"><div class="stats"><div class="stats-main"><span id="activeLabel">Percorso Blu</span><strong id="activeCount">33 da controllare</strong></div><div class="stats-side" id="percent">0% controllati</div></div><div class="progress"><span id="bar"></span></div><div class="status-legend"><div class="status-pill"><b id="legendUnchecked">33</b>Da controllare</div><div class="status-pill"><b id="legendEmpty">0</b>Vuoti</div><div class="status-pill"><b id="legendSpawned">0</b>Spawnati</div></div><div class="controls"><button class="btn primary" id="nextBtn">Prossimo da controllare</button><button class="btn" id="fitBtn">Centra percorso</button><button class="btn route-toggle" id="routePathBtn">Mostra percorso consigliato</button></div><label class="toggle"><span>Nascondi i punti vuoti</span><input type="checkbox" id="hideEmpty"></label></div>
 <div class="section"><div class="section-title">Stato percorsi</div><div class="route-list"><div class="route-row"><i class="dot" style="background:var(--blue)"></i><b>Percorso Blu</b><span id="mini-blu">? 33 · × 0 · ★ 0</span></div><div class="route-row"><i class="dot" style="background:var(--yellow)"></i><b>Percorso Giallo</b><span id="mini-gialla">? 27 · × 0 · ★ 0</span></div><div class="route-row"><i class="dot" style="background:var(--red)"></i><b>Percorso Rosso</b><span id="mini-rossa">? 24 · × 0 · ★ 0</span></div></div></div>
 <div class="section">
   <div class="section-title">Gestione mappa</div>
@@ -59,7 +59,7 @@
     <div class="admin-hint" id="adminHint">Puoi modificare i marker dal loro popup oppure aggiungerne uno nuovo cliccando sulla mappa.</div>
   </div>
 </div>
-<div class="note">Stati: normale = da controllare, × = controllato senza tesoro, ★ = tesoro spawnato. In modalità Gruppo gli stati sono condivisi tra tutti quelli che usano lo stesso codice.</div>
+<div class="note">Stati: normale = da controllare, × = controllato senza tesoro, ★ = tesoro spawnato. In modalità Gruppo gli stati sono condivisi tra tutti quelli che usano lo stesso codice. Il percorso consigliato segue l'ordine numerico e salta automaticamente i punti già segnati come vuoti.</div>
 <button class="reset" id="resetBtn">Azzera la sessione personale</button>
 </aside>
 <button class="open-panel" id="openPanel">Percorsi</button>
@@ -122,6 +122,7 @@ L.control.attribution({position:"bottomright",prefix:"Leaflet"}).addTo(map);
 var active="blu",mode=localStorage.getItem(MODE_KEY)==="group"?"group":"personal";
 var states=mode==="group"?{}:loadLocalStates(),markerLayers={},markerIndex=new Map(),supabaseClient=null,syncTimer=null,realtimeChannel=null,globalMarkerChannel=null,groupCode=localStorage.getItem(GROUP_KEY)||"",playerName=localStorage.getItem(NAME_KEY)||"";
 var ADMIN_SESSION_KEY="wildlands-treasure-admin-session",adminKey=sessionStorage.getItem(ADMIN_SESSION_KEY)||"",adminActive=false,addMarkerMode=false,pickPositionMode=false,editingDraft=null,editingOriginalKey=null;
+var routePathVisible=false,routePathLayers=[];
 
 function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(m){return({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"})[m]})}
 function loadLocalStates(){try{return JSON.parse(localStorage.getItem(LOCAL_KEY)||"{}")||{}}catch(e){return {}}}
@@ -306,6 +307,33 @@ function popup(p){
 }
 Object.keys(ROUTES).forEach(function(r){markerLayers[r]=L.layerGroup()});
 
+function clearRoutePaths(){
+  routePathLayers.forEach(function(layer){map.removeLayer(layer)});
+  routePathLayers=[];
+}
+function drawableRoutePoints(route){
+  return POINTS.filter(function(p){return p.route===route&&statusFor(p)!=="empty"})
+    .slice().sort(function(a,b){return a.number-b.number});
+}
+function drawOneRoutePath(route){
+  var pts=drawableRoutePoints(route);
+  if(pts.length<2)return;
+  var coords=pts.map(ll),color=ROUTES[route].color;
+  var shadow=L.polyline(coords,{pane:"overlayPane",color:"#17110c",weight:8,opacity:.62,lineCap:"round",lineJoin:"round",interactive:false,className:"route-path"}).addTo(map);
+  var line=L.polyline(coords,{pane:"overlayPane",color:color,weight:4,opacity:.88,dashArray:"12 8",lineCap:"round",lineJoin:"round",interactive:false,className:"route-path"}).addTo(map);
+  routePathLayers.push(shadow,line);
+}
+function redrawRoutePaths(){
+  clearRoutePaths();
+  if(!routePathVisible)return;
+  if(active==="tutte")Object.keys(ROUTES).forEach(drawOneRoutePath);
+  else drawOneRoutePath(active);
+}
+function updateRoutePathButton(){
+  var b=document.getElementById("routePathBtn");
+  b.classList.toggle("active",routePathVisible);
+  b.textContent=routePathVisible?"Nascondi percorso consigliato":"Mostra percorso consigliato";
+}
 function routePoints(r){return r==="tutte"?POINTS:POINTS.filter(function(p){return p.route===r})}
 function currentBounds(){return L.latLngBounds(routePoints(active).map(ll))}
 function fitActive(){map.fitBounds(currentBounds().pad(.08),{padding:[28,28]})}
@@ -338,6 +366,8 @@ function refreshAll(){
   document.getElementById("nextBtn").disabled=active==="tutte";
   document.getElementById("nextBtn").style.opacity=active==="tutte"?".4":"1";
   document.getElementById("resetBtn").textContent=mode==="group"?"Inizia un nuovo giro per tutti":"Azzera la sessione personale";
+  redrawRoutePaths();
+  updateRoutePathButton();
 }
 
 async function setPointState(p,status){
@@ -427,6 +457,11 @@ function updateModeUI(){
 document.querySelectorAll(".tab[data-route]").forEach(function(b){b.onclick=function(){active=b.dataset.route;document.querySelectorAll(".tab[data-route]").forEach(function(x){x.classList.toggle("active",x===b)});refreshAll();fitActive()}});
 document.getElementById("hideEmpty").onchange=applyLayers;
 document.getElementById("fitBtn").onclick=fitActive;
+document.getElementById("routePathBtn").onclick=function(){
+  routePathVisible=!routePathVisible;
+  redrawRoutePaths();
+  updateRoutePathButton();
+};
 document.getElementById("nextBtn").onclick=function(){
   if(active==="tutte")return;
   var pts=routePoints(active).slice().sort(function(a,b){return a.number-b.number}),p=pts.find(function(x){return statusFor(x)==="unchecked"});
