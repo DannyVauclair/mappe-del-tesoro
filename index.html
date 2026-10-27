@@ -59,7 +59,7 @@
     <div class="admin-hint" id="adminHint">Puoi modificare i marker dal loro popup oppure aggiungerne uno nuovo cliccando sulla mappa.</div>
   </div>
 </div>
-<div class="note">Stati: normale = da controllare, × = controllato senza tesoro, ★ = tesoro spawnato. In modalità Gruppo gli stati sono condivisi tra tutti quelli che usano lo stesso codice. Il percorso consigliato segue l'ordine numerico e salta automaticamente i punti già segnati come vuoti.</div>
+<div class="note">Stati: normale = da controllare, × = controllato senza tesoro, ★ = tesoro spawnato. In modalità Gruppo gli stati sono condivisi tra tutti quelli che usano lo stesso codice. Il percorso consigliato calcola automaticamente una sequenza geografica più corta e continua, evita i grandi attraversamenti del lago e salta i punti già segnati come vuoti.</div>
 <button class="reset" id="resetBtn">Azzera la sessione personale</button>
 </aside>
 <button class="open-panel" id="openPanel">Percorsi</button>
@@ -311,9 +311,87 @@ function clearRoutePaths(){
   routePathLayers.forEach(function(layer){map.removeLayer(layer)});
   routePathLayers=[];
 }
+var ROUTE_WATER_ZONES=[
+  // Flat Iron Lake: strong penalty prevents the optimiser from drawing
+  // absurd shortcuts straight across the lake.
+  [[1120,760],[1210,720],[1320,725],[1430,755],[1540,790],[1640,850],[1685,930],[1660,1020],[1580,1095],[1470,1135],[1360,1125],[1260,1070],[1185,995],[1135,900]]
+];
+
+function pointInPoly(x,y,poly){
+  var inside=false;
+  for(var i=0,j=poly.length-1;i<poly.length;j=i++){
+    var xi=poly[i][0],yi=poly[i][1],xj=poly[j][0],yj=poly[j][1];
+    var hit=((yi>y)!==(yj>y))&&(x<(xj-xi)*(y-yi)/(yj-yi)+xi);
+    if(hit)inside=!inside;
+  }
+  return inside;
+}
+function segmentHitsWater(a,b){
+  var steps=Math.max(8,Math.ceil(Math.hypot(b.x-a.x,b.y-a.y)/35));
+  for(var s=1;s<steps;s++){
+    var t=s/steps,x=a.x+(b.x-a.x)*t,y=a.y+(b.y-a.y)*t;
+    for(var z=0;z<ROUTE_WATER_ZONES.length;z++){
+      if(pointInPoly(x,y,ROUTE_WATER_ZONES[z]))return true;
+    }
+  }
+  return false;
+}
+function routeEdgeCost(a,b){
+  var d=Math.hypot(b.x-a.x,b.y-a.y);
+  // Long jumps are naturally discouraged; crossing the main lake is made
+  // deliberately much more expensive than going around it.
+  return d+(segmentHitsWater(a,b)?1800:0);
+}
+function routeOrderCost(arr){
+  var total=0;
+  for(var i=1;i<arr.length;i++)total+=routeEdgeCost(arr[i-1],arr[i]);
+  return total;
+}
+function nearestRouteOrder(points,startIndex){
+  var left=points.slice(),order=[left.splice(startIndex,1)[0]];
+  while(left.length){
+    var last=order[order.length-1],best=0,bestCost=Infinity;
+    for(var i=0;i<left.length;i++){
+      var cost=routeEdgeCost(last,left[i]);
+      if(cost<bestCost){bestCost=cost;best=i}
+    }
+    order.push(left.splice(best,1)[0]);
+  }
+  return order;
+}
+function improveRoute2Opt(order){
+  if(order.length<4)return order;
+  var best=order.slice(),improved=true,passes=0;
+  while(improved&&passes++<12){
+    improved=false;
+    for(var i=0;i<best.length-2;i++){
+      for(var j=i+2;j<best.length;j++){
+        var before=(i>0?routeEdgeCost(best[i-1],best[i]):0)+(j<best.length-1?routeEdgeCost(best[j],best[j+1]):0);
+        var after=(i>0?routeEdgeCost(best[i-1],best[j]):0)+(j<best.length-1?routeEdgeCost(best[i],best[j+1]):0);
+        if(after+0.5<before){
+          var reversed=best.slice(i,j+1).reverse();
+          best=best.slice(0,i).concat(reversed,best.slice(j+1));
+          improved=true;
+        }
+      }
+    }
+  }
+  return best;
+}
+function optimiseRoute(points){
+  if(points.length<3)return points.slice();
+  var best=null,bestCost=Infinity;
+  // Try every possible starting point, then remove avoidable crossings with 2-opt.
+  for(var s=0;s<points.length;s++){
+    var candidate=improveRoute2Opt(nearestRouteOrder(points,s));
+    var cost=routeOrderCost(candidate);
+    if(cost<bestCost){bestCost=cost;best=candidate}
+  }
+  return best||points.slice();
+}
 function drawableRoutePoints(route){
-  return POINTS.filter(function(p){return p.route===route&&statusFor(p)!=="empty"})
-    .slice().sort(function(a,b){return a.number-b.number});
+  var pts=POINTS.filter(function(p){return p.route===route&&statusFor(p)!=="empty"});
+  return optimiseRoute(pts);
 }
 function drawOneRoutePath(route){
   var pts=drawableRoutePoints(route);
